@@ -1,0 +1,1 @@
+empty s2: you should replace s1 with an empty sting
