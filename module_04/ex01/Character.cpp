@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Character.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wquinoa <wquinoa@student.21-school.ru>     +#+  +:+       +#+        */
+/*   By: wquinoa <wquinoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/15 03:18:12 by wquinoa           #+#    #+#             */
-/*   Updated: 2020/09/15 06:57:45 by wquinoa          ###   ########.fr       */
+/*   Updated: 2020/09/25 15:16:38 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ Character::Character(std::string const &name)
 {
 	this->name = name;
 	this->ap = 40;
+	this->weapon = NULL;
 }
 
 Character::~Character()
@@ -32,7 +33,7 @@ Character::Character(const Character &copy)
 
 int				Character::getAP() const
 {
-	return (this->ap);
+	return (ap);
 }
 
 std::string		Character::getName() const
@@ -57,7 +58,7 @@ std::ostream	&operator<<(std::ostream &stream, const Character & copy)
 {
 	stream << copy.getName() << " has " << copy.getAP() << " AP and ";
 	if (copy.getWeapon() == NULL)
-		stream << " is unarmed";
+		stream << "is unarmed";
 	else
 		stream << "wields " << copy.getWeapon()->getName();
 	stream << std::endl;
@@ -96,5 +97,4 @@ void			Character::attack(Enemy *badguy)
 		std::cout << "Not enough AP to attack.";
 		ap = 0;
 	}
-
 }

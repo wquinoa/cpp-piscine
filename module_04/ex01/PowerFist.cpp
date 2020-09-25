@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PowerFist.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wquinoa <wquinoa@student.21-school.ru>     +#+  +:+       +#+        */
+/*   By: wquinoa <wquinoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/15 03:18:12 by wquinoa           #+#    #+#             */
-/*   Updated: 2020/09/15 04:30:42 by wquinoa          ###   ########.fr       */
+/*   Updated: 2020/09/25 15:19:25 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,10 @@
 
 PowerFist::PowerFist() : AWeapon("Power Fist", 8, 50)
 {
-	;
 }
 
 PowerFist::~PowerFist()
 {
-	;
 }
 
 PowerFist::PowerFist(const PowerFist &copy) : AWeapon(copy)
