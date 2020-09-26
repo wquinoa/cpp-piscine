@@ -3,28 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   PlasmaRifle.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wquinoa <wquinoa@student.21-school.ru>     +#+  +:+       +#+        */
+/*   By: wquinoa <wquinoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/15 03:18:12 by wquinoa           #+#    #+#             */
-/*   Updated: 2020/09/15 06:30:43 by wquinoa          ###   ########.fr       */
+/*   Updated: 2020/09/25 15:34:04 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PlasmaRifle.hpp"
 
-PlasmaRifle::PlasmaRifle() : AWeapon("Plasma Rifle", 5, 31)
+PlasmaRifle::PlasmaRifle() : AWeapon("Plasma Rifle", 5, 21)
 {
-	;
 }
 
 PlasmaRifle::PlasmaRifle(const PlasmaRifle &copy) : AWeapon(copy)
 {
-	;
 }
 
 PlasmaRifle::~PlasmaRifle()
 {
-	;
 }
 
 PlasmaRifle &PlasmaRifle::operator=(const PlasmaRifle & copy)

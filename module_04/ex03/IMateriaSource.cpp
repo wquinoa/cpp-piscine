@@ -1,50 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Enemy.cpp                                          :+:      :+:    :+:   */
+/*   IMateriaSource.cpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wquinoa <wquinoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/15 03:18:12 by wquinoa           #+#    #+#             */
-/*   Updated: 2020/09/25 15:18:08 by wquinoa          ###   ########.fr       */
+/*   Created: 2020/09/25 18:13:26 by wquinoa           #+#    #+#             */
+/*   Updated: 2020/09/25 19:15:07 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Enemy.hpp"
+#include "IMateriaSource.hpp"
 
-Enemy::Enemy(int hp, std::string const &type)
+IMateriaSource::IMateriaSource()
 {
-	this->hp = hp;
-	this->type = type;
+	collection_ = NULL;
+	coll_size = 0;
 }
 
-Enemy::~Enemy()
+IMateriaSource::IMateriaSource(const IMateriaSource &copy)
 {
 }
 
-Enemy::Enemy(const Enemy &copy)
+IMateriaSource	&IMateriaSource::operator=(const IMateriaSource &copy)
 {
-	*this = copy;
-}
-
-Enemy			&Enemy::operator=(const Enemy &copy)
-{
-	hp = copy.getHP();
-	type = copy.getType();
 	return (*this);
 }
 
-void			Enemy::takeDamage(int dmg)
+void			IMateriaSource::learnMateria(AMateria *mat)
 {
-	hp -= dmg;
-}
-
-int				Enemy::getHP() const
-{
-	return (this->hp);
-}
-
-std::string		Enemy::getType() const
-{
-	return (this->type);
+	if (coll_size < 4)
+	{
+	}
 }

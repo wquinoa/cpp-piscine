@@ -5,39 +5,27 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: wquinoa <wquinoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/15 05:52:43 by wquinoa           #+#    #+#             */
-/*   Updated: 2020/09/25 15:34:37 by wquinoa          ###   ########.fr       */
+/*   Created: 2020/09/19 21:14:38 by wquinoa           #+#    #+#             */
+/*   Updated: 2020/09/25 18:15:28 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "AMateria.hpp"
+#include "Ice.hpp"
+#include "Cure.hpp"
 #include "Character.hpp"
-#include "PowerFist.hpp"
-#include "PlasmaRifle.hpp"
-#include "RadScorpion.hpp"
-#include "SuperMutant.hpp"
+#include "MateriaSource.hpp"
+#include "IMateriaSource.hpp"
+#include "ICharacter.hpp"
 
-int main()
+int		main(void)
 {
-	Character* me = new Character("me");
+	IMateriaSource *src = new MateriaSource();
+	src->learnMateria(new Ice());
+	src->learnMateria(new Cure());
 
-	std::cout << *me;
+	ICharacter	*zaz = new Character("zaz");
 
-	Enemy* b = new RadScorpion();
 
-	AWeapon* pr = new PlasmaRifle();
-	AWeapon* pf = new PowerFist();
-
-	me->equip(pr);
-	std::cout << *me;
-	me->equip(pf);
-
-	me->attack(b);
-	std::cout << *me;
-	me->equip(pr);
-	std::cout << *me; 
-	me->attack(b);
-	std::cout << *me;
-	me->attack(b);
-	std::cout << *me;
-	return 0;
+	return (0);
 }
