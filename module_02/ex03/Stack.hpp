@@ -1,40 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cp_Fixed.hpp                                       :+:      :+:    :+:   */
+/*   Stack.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wquinoa <wquinoa@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/26 17:35:31 by wquinoa           #+#    #+#             */
-/*   Updated: 2020/09/26 18:51:02 by wquinoa          ###   ########.fr       */
+/*   Created: 2020/09/26 20:21:26 by wquinoa           #+#    #+#             */
+/*   Updated: 2020/09/26 20:39:27 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CP_FIXED_HPP
-# define CP_FIXED_HPP
+#ifndef STACK_HPP
+# define STACK_HPP
 # include <iostream>
-# include <cmath>
-# define NBITS 8
 
-class Fixed
+class Stack
 {
 public:
-	Fixed();
-	Fixed(int);
-	Fixed(float);
-	Fixed(const Fixed &copy);
-	~Fixed();
-	Fixed &operator=(const Fixed &copy);
-	float				toFloat() const;
-	int					toInt() const;
-	int					getRawBits() const;
-	void				setRawBits(const int);
+	Stack();
+	Stack(const Stack &copy);
+	~Stack();
+	Stack &operator=(const Stack &copy);
+
+	void		push(std::string);
+	std::string	pop();
+	std::string	peek() const;
 
 private:
-	int					raw_bits;
-	static const int	nbits;
+	std::string *stack;
+	size_t		size;
 };
-
-std::ostream	&operator<<(std::ostream &stream, const Fixed &src);
 
 #endif
