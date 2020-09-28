@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cp_Fixed.cpp                                       :+:      :+:    :+:   */
+/*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wquinoa <wquinoa@student.21-school.ru>     +#+  +:+       +#+        */
+/*   By: wquinoa <wquinoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/26 17:35:31 by wquinoa           #+#    #+#             */
-/*   Updated: 2020/09/26 19:21:49 by wquinoa          ###   ########.fr       */
+/*   Updated: 2020/09/27 14:56:06 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cp_Fixed.hpp"
+#include "Fixed.hpp"
 
 void			Fixed::setRawBits(const int val)
 {
@@ -26,7 +26,7 @@ int				Fixed::getRawBits() const
 
 int				Fixed::toInt(void) const
 {
-	return (raw_bits >> NBITS);
+	return (raw_bits >> nbits);
 }
 
 float			Fixed::toFloat(void) const
@@ -43,7 +43,7 @@ Fixed::Fixed()
 Fixed::Fixed(int n)
 {
 	std::cout << "Int constructor called" << std::endl;
-	raw_bits = n << NBITS;
+	raw_bits = n << nbits;
 }
 
 Fixed::Fixed(float n)

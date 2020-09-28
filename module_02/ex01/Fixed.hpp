@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cp_Fixed.hpp                                       :+:      :+:    :+:   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wquinoa <wquinoa@student.21-school.ru>     +#+  +:+       +#+        */
+/*   By: wquinoa <wquinoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/26 17:35:31 by wquinoa           #+#    #+#             */
-/*   Updated: 2020/09/26 18:51:02 by wquinoa          ###   ########.fr       */
+/*   Updated: 2020/09/27 14:56:10 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CP_FIXED_HPP
-# define CP_FIXED_HPP
+#ifndef FIXED_HPP
+# define FIXED_HPP
 # include <iostream>
 # include <cmath>
-# define NBITS 8
 
 class Fixed
 {
@@ -32,7 +31,7 @@ public:
 
 private:
 	int					raw_bits;
-	static const int	nbits;
+	static const int	nbits = 8;
 };
 
 std::ostream	&operator<<(std::ostream &stream, const Fixed &src);
