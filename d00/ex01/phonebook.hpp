@@ -6,7 +6,7 @@
 /*   By: wquinoa <wquinoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/06 01:39:58 by wquinoa           #+#    #+#             */
-/*   Updated: 2020/09/29 17:16:28 by wquinoa          ###   ########.fr       */
+/*   Updated: 2020/09/29 17:48:37 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,14 @@
 # define PHONEBOOK_CPP
 # include <iostream>
 # include <iomanip>
+# define REDIFY(x) "\033[1;31m" + std::string(x) + "\033[0m"
+# define GREENIFY(x) "\033[1;32m" + std::string(x) + "\033[0m"
+# define CURSOR "\033[32m☎️ > \033[0m"
 
 class Contact
 {
 public:
 	Contact(std::string *);
-	//~Contact();
 	Contact();
 	std::string		get(int);
 	void			set(int, std::string);

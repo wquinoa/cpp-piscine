@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.hpp                                       :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wquinoa <wquinoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/26 20:45:55 by wquinoa           #+#    #+#             */
-/*   Updated: 2020/09/29 23:47:53 by wquinoa          ###   ########.fr       */
+/*   Updated: 2020/09/28 16:01:34 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,25 +18,25 @@
 # define GREENIFY(x) ("\033[32;1m" + x + "\033[0;m")
 # define REDIFY(x) ("\033[31;1m" + x + "\033[0;m")
 
-class FragTrap
+class ScavTrap
 {
 public:
-	FragTrap(std::string name);
-	~FragTrap();
-	FragTrap &operator=(const FragTrap &copy);
+	ScavTrap(std::string name);
+	~ScavTrap();
+	ScavTrap &operator=(const ScavTrap &copy);
 
 	void	randgedAttack(std::string const &target);
 	void	meleeAttack(std::string const &target);
 	void	takeDamage(unsigned int amount);
 	void	beRepaired(unsigned int amount);
-	void	vaulthunter_dot_exe(std::string const &target);
+	void	challengeNewcomer(std::string const &target);
 
 private:
-	int	maxHp;
-	int	maxEp;
-	int	melee;
-	int	ranged;
-	static const int	dmgReduction;
+	int					maxHp;
+	int					maxEp;
+	int					melee;
+	int					ranged;
+	int					dmgReduction;
 	int					level;
 	long long			Hp;
 	long long			Ep;

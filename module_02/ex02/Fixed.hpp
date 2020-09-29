@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wquinoa <wquinoa@student.21-school.ru>     +#+  +:+       +#+        */
+/*   By: wquinoa <wquinoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/26 17:35:31 by wquinoa           #+#    #+#             */
-/*   Updated: 2020/09/26 19:58:11 by wquinoa          ###   ########.fr       */
+/*   Updated: 2020/09/29 21:08:59 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define FIXED_HPP
 # include <iostream>
 # include <cmath>
-# define NBITS 8
 
 class Fixed
 {
@@ -25,15 +24,18 @@ public:
 	Fixed(const Fixed &copy);
 	~Fixed();
 
+	float				toFloat() const;
+	int					toInt() const;
+	int					getRawBits() const;
+	void				setRawBits(const int);
+
 	Fixed	&operator=(const Fixed &copy);
-	bool	operator> (const Fixed &);
-	bool	operator> (const Fixed &) const; // TODO
-	bool	operator< (const Fixed &);
-	bool	operator< (const Fixed &) const; // TODO
-	bool	operator>= (const Fixed &);
-	bool	operator<= (const Fixed &);
-	bool	operator== (const Fixed &);
-	bool	operator!= (const Fixed &);
+	bool	operator> (const Fixed &) const;
+	bool	operator< (const Fixed &) const;
+	bool	operator>= (const Fixed &) const;
+	bool	operator<= (const Fixed &) const;
+	bool	operator== (const Fixed &) const;
+	bool	operator!= (const Fixed &) const;
 
 	Fixed	operator+ (const Fixed &);
 	Fixed	operator- (const Fixed &);
@@ -45,14 +47,9 @@ public:
 	Fixed	operator++ (int);
 	Fixed	operator-- (int);
 
-	float				toFloat() const;
-	int					toInt() const;
-	int					getRawBits() const;
-	void				setRawBits(const int);
-
 private:
 	int					raw_bits;
-	static const int	nbits;
+	static const int	nbits = 8;
 };
 
 std::ostream	&operator<<(std::ostream &stream, const Fixed &src);

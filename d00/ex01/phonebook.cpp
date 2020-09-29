@@ -6,7 +6,7 @@
 /*   By: wquinoa <wquinoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/08 20:48:02 by wquinoa           #+#    #+#             */
-/*   Updated: 2020/09/29 17:16:16 by wquinoa          ###   ########.fr       */
+/*   Updated: 2020/09/29 17:25:45 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,10 +98,10 @@ void		search_contact(Contact *contacts, int count)
 		if (i >= 1 && i < 8 && i <= count)
 			print_contact(contacts[i - 1]);
 		else
-			std::cout << "\n\n!!! The selected entry is empty !!!\n";
+			std::cout << REDIFY("\n\nERROR: ") << "The selected entry is empty\n";
 	}
 	else
-		std::cout << "\n\n!!! Please use a number ranging from 1 to 8. !!!\n";
+		std::cout << REDIFY("\n\nERROR: ") << "Please use a number ranging from 1 to 8.\n";
 	std::cout << "\n";
 }
 
@@ -125,7 +125,7 @@ int		main(void)
 	std::string	cmd;
 	int			i = 0;
 
-	std::cout << "The crappy phonebook.\nUsage: ADD SEARCH EXIT\n☎️ > ";
+	std::cout << "The crappy phonebook.\nUsage: " << GREENIFY("ADD SEARCH EXIT\n");
 	while (getline(std::cin, cmd))
 	{
 		if (cmd == "ADD")
@@ -137,7 +137,7 @@ int		main(void)
 			search_contact(contacts, i);
 		if (cmd == "EXIT")
 			exit (0);
-		std::cout << "☎️ > ";
+		std::cout << CURSOR;
 	}
 	return (0);
 }

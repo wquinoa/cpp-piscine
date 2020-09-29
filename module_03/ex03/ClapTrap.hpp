@@ -1,42 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.hpp                                       :+:      :+:    :+:   */
+/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wquinoa <wquinoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/26 20:45:55 by wquinoa           #+#    #+#             */
-/*   Updated: 2020/09/29 23:47:53 by wquinoa          ###   ########.fr       */
+/*   Created: 2020/09/29 21:59:03 by wquinoa           #+#    #+#             */
+/*   Updated: 2020/09/29 23:40:57 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRAGTRAP_HPP
-# define FRAGTRAP_HPP
+#ifndef CLAPTRAP_HPP
+# define CLAPTRAP_HPP
 # include <iostream>
 # include <unistd.h>
 # include <ctime>
 # define GREENIFY(x) ("\033[32;1m" + x + "\033[0;m")
 # define REDIFY(x) ("\033[31;1m" + x + "\033[0;m")
 
-class FragTrap
+class ClapTrap
 {
 public:
-	FragTrap(std::string name);
-	~FragTrap();
-	FragTrap &operator=(const FragTrap &copy);
+	ClapTrap(std::string name);
+	~ClapTrap();
+	ClapTrap &operator=(const ClapTrap &copy);
 
 	void	randgedAttack(std::string const &target);
 	void	meleeAttack(std::string const &target);
 	void	takeDamage(unsigned int amount);
 	void	beRepaired(unsigned int amount);
-	void	vaulthunter_dot_exe(std::string const &target);
 
-private:
-	int	maxHp;
-	int	maxEp;
-	int	melee;
-	int	ranged;
-	static const int	dmgReduction;
+//private:
+protected:
+	int					maxHp;
+	int					maxEp;
+	int					melee;
+	int					ranged;
+	int					dmgReduction;
 	int					level;
 	long long			Hp;
 	long long			Ep;

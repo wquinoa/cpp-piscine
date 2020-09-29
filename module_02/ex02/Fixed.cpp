@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wquinoa <wquinoa@student.21-school.ru>     +#+  +:+       +#+        */
+/*   By: wquinoa <wquinoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/26 17:35:31 by wquinoa           #+#    #+#             */
-/*   Updated: 2020/09/26 19:56:54 by wquinoa          ###   ########.fr       */
+/*   Updated: 2020/09/29 20:55:35 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,39 +24,35 @@ int				Fixed::getRawBits() const
 	return (raw_bits);
 }
 
-int				Fixed::toInt(void) const
+int				Fixed::toInt() const
 {
-	return (raw_bits >> NBITS);
+	return (raw_bits >> nbits);
 }
 
-float			Fixed::toFloat(void) const
+float			Fixed::toFloat() const
 {
-	return (raw_bits / 256.0); // 2 ^ 8
+	return (raw_bits / 256.0);
 }
 
 // Constructors
 
 Fixed::Fixed()
 {
-
 	raw_bits = 0;
 }
 
 Fixed::Fixed(int n)
 {
-
-	raw_bits = n << NBITS;
+	raw_bits = n << nbits;
 }
 
 Fixed::Fixed(float n)
 {
-
-	raw_bits = roundf(n * (1 << NBITS));
+	raw_bits = roundf(n * (1 << nbits));
 }
 
 Fixed::Fixed(const Fixed &copy)
 {
-
 	raw_bits = copy.raw_bits;
 }
 
@@ -69,7 +65,6 @@ Fixed::~Fixed()
 
 Fixed			&Fixed::operator=(const Fixed &copy)
 {
-
 	raw_bits = copy.raw_bits;
 	return (*this);
 }
@@ -80,15 +75,17 @@ std::ostream	&operator<<(std::ostream &stream, const Fixed &src)
 	return (stream);
 }
 
-bool	Fixed::operator> (const Fixed &cmp)
-{
-	return (raw_bits > cmp.getRawBits());
-}
+// Comparison operators
 
-bool	Fixed::operator< (const Fixed &cmp)
-{
-	return (raw_bits < cmp.getRawBits());
-}
+//bool	Fixed::operator> (const Fixed &cmp)
+//{
+	//return (raw_bits > cmp.getRawBits());
+//}
+
+//bool	Fixed::operator< (const Fixed &cmp)
+//{
+	//return (raw_bits < cmp.getRawBits());
+//}
 
 bool	Fixed::operator> (const Fixed &cmp) const
 {
@@ -101,27 +98,25 @@ bool	Fixed::operator< (const Fixed &cmp) const
 }
 
 
-bool	Fixed::operator>= (const Fixed &cmp)
+bool	Fixed::operator>= (const Fixed &cmp) const
 {
 	return (raw_bits >= cmp.getRawBits());
 }
 
-bool	Fixed::operator<= (const Fixed &cmp)
+bool	Fixed::operator<= (const Fixed &cmp) const
 {
 	return (raw_bits <= cmp.getRawBits());
 }
 
-bool	Fixed::operator== (const Fixed &cmp)
+bool	Fixed::operator== (const Fixed &cmp) const
 {
 	return (raw_bits == cmp.getRawBits());
 }
 
-bool	Fixed::operator!= (const Fixed &cmp)
+bool	Fixed::operator!= (const Fixed &cmp) const
 {
 	return (raw_bits != cmp.getRawBits());
 }
-
-// Arithmetic operators
 
 Fixed	Fixed::operator+ (const Fixed &add)
 {

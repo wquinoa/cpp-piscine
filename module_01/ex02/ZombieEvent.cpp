@@ -3,14 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   ZombieEvent.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wquinoa <wquinoa@student.21-school.ru>     +#+  +:+       +#+        */
+/*   By: wquinoa <wquinoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/10 02:23:10 by wquinoa           #+#    #+#             */
-/*   Updated: 2020/09/10 03:29:10 by wquinoa          ###   ########.fr       */
+/*   Updated: 2020/09/29 20:14:33 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ZombieEvent.hpp"
+
+ZombieEvent::ZombieEvent()
+{
+	std::srand(time(NULL));
+}
 
 void	ZombieEvent::setZombieType(std::string newType)
 {
@@ -19,21 +24,17 @@ void	ZombieEvent::setZombieType(std::string newType)
 
 Zombie*	ZombieEvent::newZombie(std::string name)
 {
-	Zombie	*newZ = new Zombie;
+	Zombie	*newZ = new Zombie(name, eventType);
 
-	newZ->name = name;
-	newZ->type = eventType;
 	return (newZ);
 }
 
 void	ZombieEvent::randomChump(void)
 {
-	Zombie			rando;
 	std::string		names[12] = {"wquinoa", "kwillum", "ltheresi", "bbrynn",
 								"lclaudet", "mlouann", "rvilkas", "ndreadno",
 								 "jalvaro", "drina", "hurek", "salec"};
+	Zombie			rando = Zombie(names[rand() % 12], eventType);
 
-	rando.name = names[rand() % 12];
-	rando.type = eventType;
 	rando.announce();
 }

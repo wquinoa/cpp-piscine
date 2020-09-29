@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.cpp                                       :+:      :+:    :+:   */
+/*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wquinoa <wquinoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/26 20:45:55 by wquinoa           #+#    #+#             */
-/*   Updated: 2020/09/29 21:51:49 by wquinoa          ###   ########.fr       */
+/*   Created: 2020/09/29 21:59:03 by wquinoa           #+#    #+#             */
+/*   Updated: 2020/09/29 23:27:26 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "FragTrap.hpp"
+#include "ClapTrap.hpp"
 
 void		printer(std::string message)
 {
@@ -22,55 +22,29 @@ void		printer(std::string message)
 		std::cout << std::flush;
 		usleep(5000);
 	}
-	for (int i = 0; i < 5; i++)
-	{
-		std::cout << message;
-		std::cout << (i & 1 ? "\u2588\r" : " \r");
-		std::cout << std::flush;
-	}
 	usleep(90000);
 	std::cout << std::endl;
 }
 
-FragTrap::FragTrap(std::string name)
+ClapTrap::ClapTrap(std::string name)
 {
+	std::cout << "A star was born!" << std::endl;
 	srand(time(0));
-	Name = name;
-	Hp = 100;
-	level = 1;
-	Ep = 100;
-	maxHp = 100;
-	maxEp = 100;
-	melee = 30;
-	ranged = 20;
-	dmgReduction = 5;
-	printer("PREPARE TO DIE!");
 }
 
-FragTrap::~FragTrap()
+ClapTrap::~ClapTrap()
 {
-	printer("SELF DESTRUCT IN ");
-	for (int i = 5; i > 0; i--)
-	{
-		std::cout << "\r"  << i << "... " << std::flush;
-		sleep(1);
-	}
-	std::cout << std::endl;
-	printer("1....");
-	sleep(1);
-	printer("1.....");
-	sleep(1);
-	printer("Haha, gotcha");
+	std::cout << "My eye AHHH..." << std::endl;
 }
 
-void	FragTrap::randgedAttack(std::string const &target)
+void	ClapTrap::randgedAttack(std::string const &target)
 {
 	std::string message = "FR4G-TP " + Name + " shoots " + target + \
 		", causing " + std::to_string(ranged) + " damamge!";
 	printer(message);
 }
 
-void	FragTrap::meleeAttack(std::string const &target)
+void	ClapTrap::meleeAttack(std::string const &target)
 {
 	std::string message = "FR4G-TP " + Name;
 	Ep -= 30;
@@ -85,7 +59,7 @@ void	FragTrap::meleeAttack(std::string const &target)
 	printer(message);
 }
 
-void	FragTrap::takeDamage(unsigned int amount)
+void	ClapTrap::takeDamage(unsigned int amount)
 {
 	unsigned long reduced = amount > (unsigned int)dmgReduction ? amount - dmgReduction : 0;
 	std::string amt = REDIFY(std::to_string(reduced));
@@ -111,7 +85,7 @@ void	FragTrap::takeDamage(unsigned int amount)
 	printer(message);
 }
 
-void	FragTrap::beRepaired(unsigned int amount)
+void	ClapTrap::beRepaired(unsigned int amount)
 {
 	std::string amt = GREENIFY(std::to_string(amount));
 	std::string message;
@@ -130,21 +104,5 @@ void	FragTrap::beRepaired(unsigned int amount)
 		message = " Thank you, minion!";
 	}
 	usleep(50000);
-	printer(message);
-}
-
-void	FragTrap::vaulthunter_dot_exe(std::string const &target)
-{
-	std::string message = "";
-	std::string	options[5] = {
-		"One Shot Wonder",
-		"Pirate Ship Mode",
-		"Clap-In-The-Box",
-		"Gun Wizard",
-		"Funzerker"
-	};
-
-	message += "FR4G-TP " + Name + " uses " + options[rand() % 5] + "!";
-	message += " " + target + " dies awestruck by FR4G-TP's skills!";
 	printer(message);
 }

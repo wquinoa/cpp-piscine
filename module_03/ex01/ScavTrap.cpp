@@ -1,78 +1,62 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.cpp                                       :+:      :+:    :+:   */
+/*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wquinoa <wquinoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/26 20:45:55 by wquinoa           #+#    #+#             */
-/*   Updated: 2020/09/29 21:51:49 by wquinoa          ###   ########.fr       */
+/*   Updated: 2020/09/29 21:51:32 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "FragTrap.hpp"
+#include "ScavTrap.hpp"
 
 void		printer(std::string message)
 {
 	message = "\033[0m" + message;
 	for (size_t i = 0; i <= message.length(); i++)
 	{
-		std::cout << message.substr(0, i);
-		std::cout << (i != message.length() ? "\u2588\r" : "\r");
-		std::cout << std::flush;
+		std::cerr << message.substr(0, i);
+		std::cerr << (i != message.length() ? "\u2588\r" : "\r");
+		std::cerr << std::flush;
 		usleep(5000);
 	}
-	for (int i = 0; i < 5; i++)
-	{
-		std::cout << message;
-		std::cout << (i & 1 ? "\u2588\r" : " \r");
-		std::cout << std::flush;
-	}
 	usleep(90000);
-	std::cout << std::endl;
+	std::cerr << std::endl;
 }
 
-FragTrap::FragTrap(std::string name)
+ScavTrap::ScavTrap(std::string name)
 {
 	srand(time(0));
 	Name = name;
 	Hp = 100;
-	level = 1;
-	Ep = 100;
 	maxHp = 100;
-	maxEp = 100;
-	melee = 30;
-	ranged = 20;
-	dmgReduction = 5;
-	printer("PREPARE TO DIE!");
+	Ep = 50;
+	maxEp = 50;
+	level = 1;
+	melee = 20;
+	ranged = 15;
+	dmgReduction= 3;
+	printer("Ahh, the smell of that crisp Pandoran air!");
 }
 
-FragTrap::~FragTrap()
+ScavTrap::~ScavTrap()
 {
-	printer("SELF DESTRUCT IN ");
-	for (int i = 5; i > 0; i--)
-	{
-		std::cout << "\r"  << i << "... " << std::flush;
-		sleep(1);
-	}
-	std::cout << std::endl;
-	printer("1....");
-	sleep(1);
-	printer("1.....");
-	sleep(1);
-	printer("Haha, gotcha");
+	printer("Am dead");
+	std::cerr << std::endl;
 }
 
-void	FragTrap::randgedAttack(std::string const &target)
+void	ScavTrap::randgedAttack(std::string const &target)
 {
-	std::string message = "FR4G-TP " + Name + " shoots " + target + \
+	std::string message = "SC4V-TP " + Name + " shoots " + target + \
 		", causing " + std::to_string(ranged) + " damamge!";
 	printer(message);
 }
 
-void	FragTrap::meleeAttack(std::string const &target)
+void	ScavTrap::meleeAttack(std::string const &target)
 {
-	std::string message = "FR4G-TP " + Name;
+	std::string message = "SC4V-TP " + Name;
 	Ep -= 30;
 	Ep = Ep < 0 ? 0 : Ep;
 	if (Ep > 0)
@@ -85,11 +69,11 @@ void	FragTrap::meleeAttack(std::string const &target)
 	printer(message);
 }
 
-void	FragTrap::takeDamage(unsigned int amount)
+void	ScavTrap::takeDamage(unsigned int amount)
 {
 	unsigned long reduced = amount > (unsigned int)dmgReduction ? amount - dmgReduction : 0;
 	std::string amt = REDIFY(std::to_string(reduced));
-	std::string message = "FR4G-TP " + Name + " takes " + amt + " damage. ";
+	std::string message = "SC4V-TP " + Name + " takes " + amt + " damage. ";
 
 	Hp -= amount;
 	Hp = Hp < 0 ? 0 : Hp;
@@ -102,8 +86,11 @@ void	FragTrap::takeDamage(unsigned int amount)
 	else if (Hp >= 20)
 		message += "His arm falls off!";
 	else if (Hp > 0)
+	{
+		Hp = 0;
 		message += "He's barely moving at this point!";
-	else
+	}
+	else	
 	{
 		Hp = 0;
 		message += "He's super-dead already, just stop!";
@@ -111,7 +98,7 @@ void	FragTrap::takeDamage(unsigned int amount)
 	printer(message);
 }
 
-void	FragTrap::beRepaired(unsigned int amount)
+void	ScavTrap::beRepaired(unsigned int amount)
 {
 	std::string amt = GREENIFY(std::to_string(amount));
 	std::string message;
@@ -125,7 +112,7 @@ void	FragTrap::beRepaired(unsigned int amount)
 	}
 	else
 	{
-		message = "FR4G-TP " + Name + " is healed for " + amt + ".";
+		message = "SC4V-TP " + Name + " is healed for " + amt + ".";
 		printer(message);
 		message = " Thank you, minion!";
 	}
@@ -133,18 +120,17 @@ void	FragTrap::beRepaired(unsigned int amount)
 	printer(message);
 }
 
-void	FragTrap::vaulthunter_dot_exe(std::string const &target)
+void	ScavTrap::challengeNewcomer(std::string const &target)
 {
 	std::string message = "";
 	std::string	options[5] = {
-		"One Shot Wonder",
-		"Pirate Ship Mode",
-		"Clap-In-The-Box",
-		"Gun Wizard",
-		"Funzerker"
+		"kill a bullymong",
+		"befriend a psycho",
+		"burn 20 varkids",
+		"use explosive weapons",
+		"bring 10 eridium"
 	};
 
-	message += "FR4G-TP " + Name + " uses " + options[rand() % 5] + "!";
-	message += " " + target + " dies awestruck by FR4G-TP's skills!";
+	message += "SC4V-TP " + Name + " challenges " + target + " to " + options[rand() % 5] + "!";
 	printer(message);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ZombieHorde.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wquinoa <wquinoa@student.21-school.ru>     +#+  +:+       +#+        */
+/*   By: wquinoa <wquinoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/10 02:23:10 by wquinoa           #+#    #+#             */
-/*   Updated: 2020/09/10 04:05:01 by wquinoa          ###   ########.fr       */
+/*   Updated: 2020/09/29 20:31:39 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,20 @@ ZombieHorde::ZombieHorde(int n)
 								"crawler", "weird", "whatever"};
 
 	srand(time(NULL));
+	if (n > INT16_MAX)
+	{
+		n = INT16_MAX;
+		std::cerr << "\033[1;31mERROR \033[0m" << "Why would you need so many zombies?" << std::endl;
+	}
+	else if (n < 1)
+	{
+		std::cerr << "\033[1;31mERROR \033[0m" << "This is not a horde." << std::endl;
+		return ;
+	}
 	horde = new Zombie[n];
 	amount = n;
 	for (int i = 0 ; i < n ; i++)
-	{
-		horde[i].name = names[rand() % 12];
-		horde[i].type = types[rand() % 12];
-	}
+		horde[i] = Zombie(names[rand() % 12], types[rand() % 12]);
 }
 
 ZombieHorde::~ZombieHorde(void)

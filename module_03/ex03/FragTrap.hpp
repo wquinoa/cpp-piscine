@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wquinoa <wquinoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/10 02:19:53 by wquinoa           #+#    #+#             */
-/*   Updated: 2020/09/29 20:05:49 by wquinoa          ###   ########.fr       */
+/*   Created: 2020/09/26 20:45:55 by wquinoa           #+#    #+#             */
+/*   Updated: 2020/09/29 23:52:33 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef FRAGTRAP_HPP
+# define FRAGTRAP_HPP
+# include <iostream>
+# include <unistd.h>
+# include <ctime>
+# include "ClapTrap.hpp"
+# define GREENIFY(x) ("\033[32;1m" + x + "\033[0;m")
+# define REDIFY(x) ("\033[31;1m" + x + "\033[0;m")
 
-Zombie::Zombie()
+class FragTrap : public ClapTrap
 {
-}
+public:
+	FragTrap(std::string name);
+	~FragTrap();
+	void	vaulthunter_dot_exe(std::string const &target);
 
-Zombie::Zombie(std::string newName, std::string newType)
-{
-	name = newName;
-	type = newType;
-}
+};
 
-void	Zombie::announce(void)
-{
-	std::cout << "My name is " << REDIFY(name.append(8 - name.length(), ' '));
-	std::cout << " and i am a " << GREENIFY(type.append(10 - type.length(), ' ')) << " zombie" << std::endl;
-}
+#endif
