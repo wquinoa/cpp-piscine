@@ -3,19 +3,52 @@
 /*                                                        :::      ::::::::   */
 /*   phonebook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wquinoa <wquinoa@student.21-school.ru>     +#+  +:+       +#+        */
+/*   By: wquinoa <wquinoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/08 20:48:02 by wquinoa           #+#    #+#             */
-/*   Updated: 2020/08/09 15:32:11 by wquinoa          ###   ########.fr       */
+/*   Updated: 2020/09/29 17:16:16 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "phonebook.hpp"
 
+const std::string	tab[11] = { "first name      : ", "last name       : ", "nickname        : ", \
+								"login           : ", "postal address  : ", "email address   : ", \
+								"favorite meal   : ", "birth date      : ", "underwear color : ", \
+								"darkest secret  : ", "phone number    : " };
+
+Contact::Contact()
+{
+}
+
+Contact::Contact(std::string *entries)
+{
+	for (int i = 0; i < 11; i++)
+		set(i, entries[i]);
+}
+
+std::string Contact::get(int position)
+{
+	std::string	to_get[11] = {firstname, lastname, nickname, login,
+								postal, email, favmeal, birthday,
+								undcolor, secret, num};
+
+	return (to_get[position]);
+}
+
+void		Contact::set(int position, std::string arg)
+{
+	std::string	*to_set[11] = {&firstname, &lastname, &nickname, &login,
+								&postal, &email, &favmeal, &birthday,
+								&undcolor, &secret, &num};
+
+	*to_set[position] = arg;
+}
+
 void	print_short(Contact contact, int num)
 {
-	std::string	entry[4] = {std::to_string(num), contact.firstname, contact.lastname,
-							contact.nickname};
+	std::string	entry[4] = {std::to_string(num), contact.get(0), contact.get(1),
+							contact.get(2)};
 	std::string	str;
 
 	for (int i = 0; i < 4; i++)
@@ -31,16 +64,16 @@ void	print_short(Contact contact, int num)
 
 void		print_contact(Contact creat)
 {
-	std::string	tab[11] = { "First name      : ", "Last name       : ", "Nickname        : ", "Login           : ",
-							"Postal address  : ", "Email address   : ", "Favorite meal   : ", "Birth date      : ",
-							"Underwear color : ", "Darkest secret  : ", "Phone number    : " };
-	std::string	entry[11] = { creat.firstname, creat.lastname, creat.nickname,
-								creat.login, creat.postal, creat.email, creat.favmeal,
-								creat.birthday, creat.undcolor, creat.secret, creat.num };
+	std::string	entry[11];
 
+	for (int i = 0; i < 11; i++)
+		entry[i] = creat.get(i);
 	std::cout << "\n";
 	for (int i = 0; i < 11; i++)
-		std::cout << tab[i] << entry[i] << "\n";
+	{
+		std::cout << (char)std::toupper(tab[i][0]);
+		std::cout << &tab[i][1] << entry[i] << std::endl;
+	}
 }
 
 void		search_contact(Contact *contacts, int count)
@@ -59,10 +92,10 @@ void		search_contact(Contact *contacts, int count)
 	std::cout << "---------------------------------------------\n\n";
 	std::cout << "Select an entry\n";
 	getline(std::cin, input);
-	if (isdigit(input[0]) && input[1] == '\0')
+	if (isdigit(input[0]) && input[1] == '\0' && input[0] != '0' && input[i] != '9')
 	{
 		i = stoi(input);
-		if (i >= 0 && i < 8 && i <= count)
+		if (i >= 1 && i < 8 && i <= count)
 			print_contact(contacts[i - 1]);
 		else
 			std::cout << "\n\n!!! The selected entry is empty !!!\n";
@@ -74,29 +107,25 @@ void		search_contact(Contact *contacts, int count)
 
 Contact	add_contact()
 {
-	std::string	tab[11] = { "first name      : ", "last name       : ", "nickname        : ", "login           : ",
-							"postal address  : ", "email address   : ", "favorite meal   : ", "birth date      : ",
-							"underwear color : ", "darkest secret  : ", "phone number    : " };
 	Contact		creat;
-	std::string	*entry[11] = { &creat.firstname, &creat.lastname, &creat.nickname,
-								&creat.login, &creat.postal, &creat.email, &creat.favmeal,
-								&creat.birthday, &creat.undcolor, &creat.secret, &creat.num };
+	std::string	entry[11];
 
 	for (int i = 0; i < 11; i++)
 	{
 		std::cout << "Enter " << tab[i];
-		getline(std::cin, *entry[i]);
+		getline(std::cin, entry[i]);
 	}
+	creat = Contact(entry);
 	return (creat);
 }
 
 int		main(void)
 {
-	Contact		*contacts;
+	Contact		contacts[9];
 	std::string	cmd;
 	int			i = 0;
 
-	contacts = new Contact[9];
+	std::cout << "The crappy phonebook.\nUsage: ADD SEARCH EXIT\n☎️ > ";
 	while (getline(std::cin, cmd))
 	{
 		if (cmd == "ADD")
@@ -108,6 +137,7 @@ int		main(void)
 			search_contact(contacts, i);
 		if (cmd == "EXIT")
 			exit (0);
+		std::cout << "☎️ > ";
 	}
 	return (0);
 }

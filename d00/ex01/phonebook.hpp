@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   phonebook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wquinoa <wquinoa@student.21-school.ru>     +#+  +:+       +#+        */
+/*   By: wquinoa <wquinoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/06 01:39:58 by wquinoa           #+#    #+#             */
-/*   Updated: 2020/08/08 21:17:35 by wquinoa          ###   ########.fr       */
+/*   Updated: 2020/09/29 17:16:28 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,14 @@
 
 class Contact
 {
-	public:
+public:
+	Contact(std::string *);
+	//~Contact();
+	Contact();
+	std::string		get(int);
+	void			set(int, std::string);
 
+private:
 	std::string	firstname;
 	std::string	lastname;
 	std::string	nickname;
@@ -31,5 +37,6 @@ class Contact
 	std::string	secret;
 	std::string	num;
 };
+
 
 #endif
