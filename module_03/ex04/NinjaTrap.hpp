@@ -1,30 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   NinjaTrap.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wquinoa <wquinoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/26 20:45:55 by wquinoa           #+#    #+#             */
-/*   Updated: 2020/09/30 20:01:12 by wquinoa          ###   ########.fr       */
+/*   Created: 2020/09/30 18:26:43 by wquinoa           #+#    #+#             */
+/*   Updated: 2020/09/30 20:17:32 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-# define SCAVTRAP_HPP
-# include "ClapTrap.hpp"
+#ifndef NINJATRAP_HPP
+# define NINJATRAP_HPP
+# include "ScavTrap.hpp"
+# include "FragTrap.hpp"
 
-class ScavTrap : public ClapTrap
+class NinjaTrap : public ClapTrap
 {
 public:
-	ScavTrap(std::string name);
-	ScavTrap(const ScavTrap &copy);
-	~ScavTrap();
-	ScavTrap	&operator=(const ScavTrap &copy);
-
-	void	challengeNewcomer(std::string const &target);
+	NinjaTrap(std::string const &);
+	NinjaTrap(const NinjaTrap &copy);
+	~NinjaTrap();
+	NinjaTrap &operator=(const NinjaTrap &copy);
+	
 	void	meleeAttack(std::string const &);
 	void	rangedAttack(std::string const &);
+
+	void	ninjaShoebox(const NinjaTrap &copy);
+	void	ninjaShoebox(const ScavTrap &copy);
+	void	ninjaShoebox(const FragTrap &copy);
 
 };
 

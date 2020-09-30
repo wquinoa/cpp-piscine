@@ -6,7 +6,7 @@
 /*   By: wquinoa <wquinoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/26 20:45:55 by wquinoa           #+#    #+#             */
-/*   Updated: 2020/09/29 23:47:53 by wquinoa          ###   ########.fr       */
+/*   Updated: 2020/09/30 18:24:46 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ public:
 	FragTrap(std::string name);
 	~FragTrap();
 	FragTrap &operator=(const FragTrap &copy);
+	FragTrap(const FragTrap &copy);
 
 	void	randgedAttack(std::string const &target);
 	void	meleeAttack(std::string const &target);
@@ -36,7 +37,7 @@ private:
 	int	maxEp;
 	int	melee;
 	int	ranged;
-	static const int	dmgReduction;
+	int	dmgReduction;
 	int					level;
 	long long			Hp;
 	long long			Ep;

@@ -6,7 +6,7 @@
 /*   By: wquinoa <wquinoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/26 20:45:55 by wquinoa           #+#    #+#             */
-/*   Updated: 2020/09/29 21:51:32 by wquinoa          ###   ########.fr       */
+/*   Updated: 2020/09/30 18:25:28 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,17 @@ ScavTrap::~ScavTrap()
 {
 	printer("Am dead");
 	std::cerr << std::endl;
+}
+
+ScavTrap::ScavTrap(const ScavTrap &copy)
+{
+	memcpy((void *)this, (void*)&copy, sizeof(ScavTrap));;
+}
+
+ScavTrap &ScavTrap::operator=(const ScavTrap &copy)
+{
+	memcpy((void *)this, (void*)&copy, sizeof(ScavTrap));;
+	return (*this);
 }
 
 void	ScavTrap::randgedAttack(std::string const &target)

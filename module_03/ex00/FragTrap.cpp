@@ -6,7 +6,7 @@
 /*   By: wquinoa <wquinoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/26 20:45:55 by wquinoa           #+#    #+#             */
-/*   Updated: 2020/09/29 21:51:49 by wquinoa          ###   ########.fr       */
+/*   Updated: 2020/09/30 18:24:25 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,17 @@ FragTrap::~FragTrap()
 	printer("1.....");
 	sleep(1);
 	printer("Haha, gotcha");
+}
+
+FragTrap::FragTrap(const FragTrap &copy)
+{
+	memcpy((void *)this, (void*)&copy, sizeof(FragTrap));;
+}
+
+FragTrap &FragTrap::operator=(const FragTrap &copy)
+{
+	memcpy((void *)this, (void*)&copy, sizeof(FragTrap));;
+	return (*this);
 }
 
 void	FragTrap::randgedAttack(std::string const &target)

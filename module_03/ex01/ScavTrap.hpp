@@ -6,7 +6,7 @@
 /*   By: wquinoa <wquinoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/26 20:45:55 by wquinoa           #+#    #+#             */
-/*   Updated: 2020/09/28 16:01:34 by wquinoa          ###   ########.fr       */
+/*   Updated: 2020/09/30 18:25:50 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ class ScavTrap
 public:
 	ScavTrap(std::string name);
 	~ScavTrap();
+	ScavTrap(const ScavTrap &copy);
 	ScavTrap &operator=(const ScavTrap &copy);
 
 	void	randgedAttack(std::string const &target);
