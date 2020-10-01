@@ -6,7 +6,7 @@
 /*   By: wquinoa <wquinoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/30 18:26:43 by wquinoa           #+#    #+#             */
-/*   Updated: 2020/09/30 20:22:24 by wquinoa          ###   ########.fr       */
+/*   Updated: 2020/10/01 18:47:43 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,11 +59,12 @@ void		NinjaTrap::rangedAttack(std::string const &target)
 
 void	NinjaTrap::ninjaShoebox(const NinjaTrap &copy)
 {
-	std::string message = "NINJ4-TP " + GREENIFY(Name) + " hight-fives ";
-	if (Name != copy.getName())
-		message += copy.getName();
-	else
+	std::string message = "NINJ4-TP " + GREENIFY(Name) + " high-fives ";
+
+	if (!memcmp((void*)this, (void*)&copy, sizeof(NinjaTrap)))
 		message += "himself!";
+	else
+		message += copy.getName();
 	printer(message);
 }
 
@@ -79,4 +80,11 @@ void	NinjaTrap::ninjaShoebox(const FragTrap &copy)
 	printer(std::string("A battle ensues!"));
 	meleeAttack(copy.getName());
 	takeDamage(copy.getMelee());
+}
+
+void	NinjaTrap::ninjaShoebox(const ClapTrap &copy)
+{
+	std::string message = "NINJ4-TP " + GREENIFY(Name) + " hugs " + copy.getName();
+
+	printer(message);
 }

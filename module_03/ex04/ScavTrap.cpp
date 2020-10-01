@@ -6,11 +6,15 @@
 /*   By: wquinoa <wquinoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/26 20:45:55 by wquinoa           #+#    #+#             */
-/*   Updated: 2020/09/30 18:21:49 by wquinoa          ###   ########.fr       */
+/*   Updated: 2020/10/01 21:11:20 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
+
+ScavTrap::ScavTrap()
+{
+}
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 {

@@ -6,7 +6,7 @@
 /*   By: wquinoa <wquinoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 21:59:03 by wquinoa           #+#    #+#             */
-/*   Updated: 2020/09/30 20:16:10 by wquinoa          ###   ########.fr       */
+/*   Updated: 2020/09/30 23:27:45 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ public:
 	virtual	void	rangedAttack(std::string const &);
 
 protected:
+	ClapTrap();
 	int					maxHp;
 	int					maxEp;
 	int					melee;

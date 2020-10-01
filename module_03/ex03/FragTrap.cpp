@@ -6,7 +6,7 @@
 /*   By: wquinoa <wquinoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/26 20:45:55 by wquinoa           #+#    #+#             */
-/*   Updated: 2020/09/30 18:17:55 by wquinoa          ###   ########.fr       */
+/*   Updated: 2020/10/01 19:09:50 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,18 +28,7 @@ FragTrap::FragTrap(std::string name) : ClapTrap(name)
 
 FragTrap::~FragTrap()
 {
-	printer("SELF DESTRUCT IN ");
-	for (int i = 5; i > 0; i--)
-	{
-		std::cout << "\r"  << i << "... " << std::flush;
-		sleep(1);
-	}
-	std::cout << std::endl;
-	printer("1....");
-	sleep(1);
-	printer("1.....");
-	sleep(1);
-	printer("Haha, gotcha");
+	printer("SELF DESTRUCT IMMINENT");
 }
 
 FragTrap::FragTrap(const FragTrap &copy) : ClapTrap(copy)

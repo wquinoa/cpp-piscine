@@ -6,7 +6,7 @@
 /*   By: wquinoa <wquinoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/30 18:26:43 by wquinoa           #+#    #+#             */
-/*   Updated: 2020/09/30 20:17:32 by wquinoa          ###   ########.fr       */
+/*   Updated: 2020/10/01 21:15:04 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,11 @@
 # include "ScavTrap.hpp"
 # include "FragTrap.hpp"
 
-class NinjaTrap : public ClapTrap
+class NinjaTrap : virtual public ClapTrap
 {
+protected:
+	NinjaTrap();
+
 public:
 	NinjaTrap(std::string const &);
 	NinjaTrap(const NinjaTrap &copy);
@@ -29,7 +32,7 @@ public:
 	void	ninjaShoebox(const NinjaTrap &copy);
 	void	ninjaShoebox(const ScavTrap &copy);
 	void	ninjaShoebox(const FragTrap &copy);
-
+	void	ninjaShoebox(const ClapTrap &copy);
 };
 
 #endif

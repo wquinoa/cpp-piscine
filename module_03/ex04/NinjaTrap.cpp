@@ -6,7 +6,7 @@
 /*   By: wquinoa <wquinoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/30 18:26:43 by wquinoa           #+#    #+#             */
-/*   Updated: 2020/09/30 20:22:24 by wquinoa          ###   ########.fr       */
+/*   Updated: 2020/10/02 00:10:25 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,11 @@ NinjaTrap::NinjaTrap(std::string const & name) : ClapTrap(name)
 	printer(message);
 }
 
+NinjaTrap::NinjaTrap()
+{
+
+}
+
 NinjaTrap::~NinjaTrap()
 {
 	std::cout << "* FWOOSH *" << std::endl;
@@ -38,7 +43,8 @@ NinjaTrap::NinjaTrap(const NinjaTrap &copy) : ClapTrap(copy)
 
 NinjaTrap	&NinjaTrap::operator=(const NinjaTrap &copy)
 {
-	return ((NinjaTrap &)ClapTrap::operator=(copy));
+	memcpy((void*)this, (void*)&copy, sizeof(NinjaTrap));
+	return (*this);
 }
 
 void		NinjaTrap::meleeAttack(std::string const &target)
@@ -59,11 +65,12 @@ void		NinjaTrap::rangedAttack(std::string const &target)
 
 void	NinjaTrap::ninjaShoebox(const NinjaTrap &copy)
 {
-	std::string message = "NINJ4-TP " + GREENIFY(Name) + " hight-fives ";
-	if (Name != copy.getName())
-		message += copy.getName();
-	else
+	std::string message = "NINJ4-TP " + GREENIFY(Name) + " high-fives ";
+
+	if (!memcmp((void*)this, (void*)&copy, sizeof(NinjaTrap)))
 		message += "himself!";
+	else
+		message += copy.getName();
 	printer(message);
 }
 
@@ -79,4 +86,13 @@ void	NinjaTrap::ninjaShoebox(const FragTrap &copy)
 	printer(std::string("A battle ensues!"));
 	meleeAttack(copy.getName());
 	takeDamage(copy.getMelee());
+	rangedAttack(copy.getName());
+	takeDamage(copy.getMelee());
+}
+
+void	NinjaTrap::ninjaShoebox(const ClapTrap &copy)
+{
+	std::string message = "NINJ4-TP " + GREENIFY(Name) + " hugs " + copy.getName();
+
+	printer(message);
 }

@@ -6,7 +6,7 @@
 /*   By: wquinoa <wquinoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/26 20:45:55 by wquinoa           #+#    #+#             */
-/*   Updated: 2020/09/30 18:17:55 by wquinoa          ###   ########.fr       */
+/*   Updated: 2020/10/02 00:13:40 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,27 +28,21 @@ FragTrap::FragTrap(std::string name) : ClapTrap(name)
 
 FragTrap::~FragTrap()
 {
-	printer("SELF DESTRUCT IN ");
-	for (int i = 5; i > 0; i--)
-	{
-		std::cout << "\r"  << i << "... " << std::flush;
-		sleep(1);
-	}
-	std::cout << std::endl;
-	printer("1....");
-	sleep(1);
-	printer("1.....");
-	sleep(1);
-	printer("Haha, gotcha");
+	printer("SELF DESTRUCT IMMINENT");
 }
 
 FragTrap::FragTrap(const FragTrap &copy) : ClapTrap(copy)
 {
 }
 
+FragTrap::FragTrap() : ClapTrap()
+{
+}
+
 FragTrap &FragTrap::operator=(const FragTrap &copy)
 {
-	return ((FragTrap &)ClapTrap::operator=(copy));
+	memcpy((void *)this, (void*)&copy, sizeof(ClapTrap));;
+	return (*this);
 }
 
 void	FragTrap::meleeAttack(std::string const &target)
@@ -69,8 +63,8 @@ void	FragTrap::meleeAttack(std::string const &target)
 
 void	FragTrap::rangedAttack(std::string const &target)
 {
-	std::string message = "FR4G-TP " + Name + " shoots " + target + \
-		", causing " + std::to_string(ranged) + " damamge!";
+	std::string message = "FR4G-TP " + GREENIFY(Name) + " shoots " + \
+		REDIFY(target) + ", causing " + std::to_string(ranged) + " damamge!";
 	printer(message);
 }
 

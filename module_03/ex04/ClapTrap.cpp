@@ -6,7 +6,7 @@
 /*   By: wquinoa <wquinoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 21:59:03 by wquinoa           #+#    #+#             */
-/*   Updated: 2020/09/30 19:59:26 by wquinoa          ###   ########.fr       */
+/*   Updated: 2020/09/30 23:27:24 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,10 @@ ClapTrap::ClapTrap(std::string name)
 	Name = name;
 	std::cout << "A star was born!" << std::endl;
 	srand(time(0));
+}
+
+ClapTrap::ClapTrap()
+{
 }
 
 ClapTrap::~ClapTrap()
