@@ -1,35 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PlasmaRifle.cpp                                    :+:      :+:    :+:   */
+/*   ISquad.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wquinoa <wquinoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/15 03:18:12 by wquinoa           #+#    #+#             */
-/*   Updated: 2020/10/02 00:34:43 by wquinoa          ###   ########.fr       */
+/*   Created: 2020/10/02 03:58:15 by wquinoa           #+#    #+#             */
+/*   Updated: 2020/10/02 04:16:51 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PlasmaRifle.hpp"
+#ifndef ISQUAD_HPP
+# define ISQUAD_HPP
+# include <iostream>
+# include "ISpaceMarine.hpp"
 
-PlasmaRifle::PlasmaRifle() : AWeapon("Plasma Rifle", 5, 21)
+class ISquad
 {
-}
+	public:
+		virtual ~ISquad() {}
+		virtual int getCount() const = 0;
+		virtual ISpaceMarine* getUnit(int) const = 0;
+		virtual int push(ISpaceMarine*) = 0;
+};
 
-PlasmaRifle::PlasmaRifle(const PlasmaRifle &copy) : AWeapon(copy)
-{
-}
-
-PlasmaRifle::~PlasmaRifle()
-{
-}
-
-PlasmaRifle &PlasmaRifle::operator=(const PlasmaRifle & copy)
-{
-	return ((PlasmaRifle &)AWeapon::operator=(copy));
-}
-
-void	PlasmaRifle::attack(void) const
-{
-	std::cout << "* piouuu piouuu piouuu *" << std::endl;
-}
+#endif

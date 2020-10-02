@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   SuperMutant.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wquinoa <wquinoa@student.21-school.ru>     +#+  +:+       +#+        */
+/*   By: wquinoa <wquinoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/15 03:18:12 by wquinoa           #+#    #+#             */
-/*   Updated: 2020/09/15 06:56:13 by wquinoa          ###   ########.fr       */
+/*   Updated: 2020/10/02 03:52:49 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ SuperMutant::SuperMutant() : Enemy(170, "Super Mutant")
 SuperMutant::~SuperMutant()
 {
 	std::cout << "Aaargh..." << std::endl;
+	bzero((void*)this, sizeof(SuperMutant));
 }
 
 SuperMutant::SuperMutant(const SuperMutant &copy) : Enemy(copy)
@@ -36,6 +37,6 @@ SuperMutant	&SuperMutant::operator=(const SuperMutant &copy)
 void		SuperMutant::takeDamage(int dmg)
 {
 	dmg -= 3;
-	if (dmg >= 0)
-		hp -= dmg * (dmg < hp);
+	hp -= dmg;
+	hp = (hp > 0) ? hp : 0;
 }

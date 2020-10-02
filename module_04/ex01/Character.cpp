@@ -6,7 +6,7 @@
 /*   By: wquinoa <wquinoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/15 03:18:12 by wquinoa           #+#    #+#             */
-/*   Updated: 2020/09/25 15:16:38 by wquinoa          ###   ########.fr       */
+/*   Updated: 2020/10/02 03:43:26 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,23 +78,28 @@ void			Character::equip(AWeapon *ptr)
 
 void			Character::attack(Enemy *badguy)
 {
-	if (weapon == NULL)
+	if (weapon == NULL) 
+		std::cout << name << " cannot attack without a weapon!" << std::endl;
+	else if ((ap -= weapon->getAPCost()) >= 0)
 	{
-		std::cout << name << " cannot attack without a weapon!";
-		return ;
-	}
-	if ((ap -= weapon->getAPCost()) >= 0)
-	{
-		std::cout << name << " attacks " << (*badguy).getType() \
-		<< " with " << (*weapon).getName() << std::endl;
-		weapon->attack();
-		(*badguy).takeDamage((*weapon).getDamage());
-		if ((*badguy).getHP() <= 0)
-			delete badguy;
+		if (badguy == NULL)
+		{
+			std::cout << name << " attacks a dead enemy." << std::endl;
+			weapon->attack();
+			ap -= weapon->getAPCost();
+		}
+		else
+		{
+			std::cout << name << " attacks " << (*badguy).getType() \
+			<< " with " << (*weapon).getName() << std::endl;
+			weapon->attack();
+			(*badguy).takeDamage((*weapon).getDamage());
+			if ((*badguy).getHP() <= 0)
+				delete badguy;
+		}
 	}
 	else
-	{
-		std::cout << "Not enough AP to attack.";
-		ap = 0;
-	}
+		std::cout << "Not enough AP to attack." << std::endl;
+
+	ap *= (ap > 0);
 }

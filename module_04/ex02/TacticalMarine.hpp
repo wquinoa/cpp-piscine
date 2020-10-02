@@ -1,28 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RadScorpion.hpp                                    :+:      :+:    :+:   */
+/*   TacticalMarine.hpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wquinoa <wquinoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/15 03:18:12 by wquinoa           #+#    #+#             */
-/*   Updated: 2020/10/02 03:33:08 by wquinoa          ###   ########.fr       */
+/*   Created: 2020/10/02 03:59:12 by wquinoa           #+#    #+#             */
+/*   Updated: 2020/10/02 04:33:08 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef RADSCORPION_HPP
-# define RADSCORPION_HPP
-# include "Enemy.hpp"
+#ifndef TACTICALMARINE_HPP
+# define TACTICALMARINE_HPP
+# include <iostream>
+# include "ISpaceMarine.hpp"
 
-class RadScorpion : public Enemy
+class TacticalMarine : public ISpaceMarine
 {
 public:
-	RadScorpion();
-	RadScorpion(RadScorpion *);
-	RadScorpion(const RadScorpion &copy);
-	~RadScorpion();
-	void		destroy();
-	RadScorpion &operator=(const RadScorpion &copy);
+	TacticalMarine();
+	TacticalMarine(const TacticalMarine &copy);
+	~TacticalMarine();
+	TacticalMarine &operator=(const TacticalMarine &copy);
+
+	TacticalMarine *clone() const;
+	void			battleCry() const;
+	void			rangedAttack() const;
+	void			meleeAttack() const;
+	void			assfuck();
 };
 
 #endif

@@ -1,39 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Enemy.hpp                                          :+:      :+:    :+:   */
+/*   AssaultTerminator.hpp                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wquinoa <wquinoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/15 03:18:12 by wquinoa           #+#    #+#             */
-/*   Updated: 2020/10/02 03:31:37 by wquinoa          ###   ########.fr       */
+/*   Created: 2020/10/02 03:58:15 by wquinoa           #+#    #+#             */
+/*   Updated: 2020/10/02 04:39:49 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ENEMY_HPP
-# define ENEMY_HPP
-
+#ifndef ASSAULTTERMINATOR_HPP
+# define ASSAULTTERMINATOR_HPP
 # include <iostream>
+# include "ISpaceMarine.hpp"
 
-class Enemy
+class AssaultTerminator : public ISpaceMarine
 {
 public:
-	Enemy(int hp, std::string const &type);
-	Enemy(const Enemy &copy);
-	virtual ~Enemy();
+	AssaultTerminator();
+	AssaultTerminator(const AssaultTerminator &copy);
+	~AssaultTerminator();
+	AssaultTerminator &operator=(const AssaultTerminator &copy);
 
-	Enemy	&operator=(const Enemy &copy);
-
-	int				getHP() const;
-	std::string		getType() const;
-	virtual void	takeDamage(int dmg);
-
-protected:
-	Enemy();
-	int				hp;
-	std::string		type;
-
-private:
+	AssaultTerminator	*clone() const;
+	void				battleCry() const;
+	void				rangedAttack() const;
+	void				meleeAttack() const;
+	void				assfuck();
 };
 
 #endif

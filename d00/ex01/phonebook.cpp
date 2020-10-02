@@ -6,7 +6,7 @@
 /*   By: wquinoa <wquinoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/08 20:48:02 by wquinoa           #+#    #+#             */
-/*   Updated: 2020/09/29 17:25:45 by wquinoa          ###   ########.fr       */
+/*   Updated: 2020/10/01 21:38:00 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,12 +87,12 @@ void		search_contact(Contact *contacts, int count)
 		return ;
 	}
 	std::cout << "---------------------------------------------\n";
-	for (i = 0 ; i < count ; i++)
+	for (i = 0 ; i < count && i < 8 ; i++)
 		print_short(contacts[i], i + 1);
 	std::cout << "---------------------------------------------\n\n";
 	std::cout << "Select an entry\n";
 	getline(std::cin, input);
-	if (isdigit(input[0]) && input[1] == '\0' && input[0] != '0' && input[i] != '9')
+	if (isdigit(input[0]) && input[1] == '\0' && input[0] != '0' && input[0] != '9')
 	{
 		i = stoi(input);
 		if (i >= 1 && i < 8 && i <= count)
@@ -114,6 +114,11 @@ Contact	add_contact()
 	{
 		std::cout << "Enter " << tab[i];
 		getline(std::cin, entry[i]);
+		if (i == 0 && entry[i].empty())
+		{
+			std::cout << REDIFY("WARNING: ") << "please fill this in\n";
+			i = -1;
+		}
 	}
 	creat = Contact(entry);
 	return (creat);
@@ -121,16 +126,23 @@ Contact	add_contact()
 
 int		main(void)
 {
-	Contact		contacts[9];
+	Contact		contacts[8];
 	std::string	cmd;
 	int			i = 0;
 
-	std::cout << "The crappy phonebook.\nUsage: " << GREENIFY("ADD SEARCH EXIT\n");
+	std::cout << "The crappy awesome phonebook.\nUsage: " << GREENIFY("ADD SEARCH EXIT\n");
+	std::cout << CURSOR;
 	while (getline(std::cin, cmd))
 	{
 		if (cmd == "ADD")
 		{
-			contacts[i] = add_contact();
+			if (i < 8)
+				contacts[i] = add_contact();
+			else
+			{
+				std::cout << REDIFY("\n\nERROR: ") << "The phonebook is full.\n\n";
+				i = 8;
+			}
 			i++;
 		}
 		if (cmd == "SEARCH")

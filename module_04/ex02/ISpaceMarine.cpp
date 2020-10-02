@@ -1,35 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PlasmaRifle.cpp                                    :+:      :+:    :+:   */
+/*   ISpaceMarine.cpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wquinoa <wquinoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/15 03:18:12 by wquinoa           #+#    #+#             */
-/*   Updated: 2020/10/02 00:34:43 by wquinoa          ###   ########.fr       */
+/*   Created: 2020/10/02 03:59:12 by wquinoa           #+#    #+#             */
+/*   Updated: 2020/10/02 04:18:13 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PlasmaRifle.hpp"
+#include "ISpaceMarine.hpp"
 
-PlasmaRifle::PlasmaRifle() : AWeapon("Plasma Rifle", 5, 21)
-{
-}
+//ISpaceMarine::ISpaceMarine()
+//{
+//}
 
-PlasmaRifle::PlasmaRifle(const PlasmaRifle &copy) : AWeapon(copy)
-{
-}
+//ISpaceMarine::~ISpaceMarine()
+//{
+//}
 
-PlasmaRifle::~PlasmaRifle()
-{
-}
+//ISpaceMarine::ISpaceMarine(const ISpaceMarine &copy)
+//{
+//}
 
-PlasmaRifle &PlasmaRifle::operator=(const PlasmaRifle & copy)
-{
-	return ((PlasmaRifle &)AWeapon::operator=(copy));
-}
-
-void	PlasmaRifle::attack(void) const
-{
-	std::cout << "* piouuu piouuu piouuu *" << std::endl;
-}
+//ISpaceMarine	&ISpaceMarine::operator=(const ISpaceMarine &copy)
+//{
+	//return (*this);
+//}

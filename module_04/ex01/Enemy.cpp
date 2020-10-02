@@ -6,7 +6,7 @@
 /*   By: wquinoa <wquinoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/15 03:18:12 by wquinoa           #+#    #+#             */
-/*   Updated: 2020/09/25 15:18:08 by wquinoa          ###   ########.fr       */
+/*   Updated: 2020/10/02 03:30:00 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ Enemy::~Enemy()
 
 Enemy::Enemy(const Enemy &copy)
 {
-	*this = copy;
+	hp = copy.getHP();
+	type = copy.getType();
 }
 
 Enemy			&Enemy::operator=(const Enemy &copy)
@@ -36,6 +37,8 @@ Enemy			&Enemy::operator=(const Enemy &copy)
 
 void			Enemy::takeDamage(int dmg)
 {
+	if (dmg > hp)
+		dmg = hp;
 	hp -= dmg;
 }
 
