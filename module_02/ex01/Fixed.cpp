@@ -6,7 +6,7 @@
 /*   By: wquinoa <wquinoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/26 17:35:31 by wquinoa           #+#    #+#             */
-/*   Updated: 2020/09/27 14:56:06 by wquinoa          ###   ########.fr       */
+/*   Updated: 2020/10/04 15:27:51 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int				Fixed::toInt(void) const
 
 float			Fixed::toFloat(void) const
 {
-	return (raw_bits / 256.0); // 2 ^ 8
+	return (raw_bits * 1.0 / (1 << nbits));
 }
 
 Fixed::Fixed()
@@ -49,7 +49,7 @@ Fixed::Fixed(int n)
 Fixed::Fixed(float n)
 {
 	std::cout << "Float constructor called" << std::endl;
-	raw_bits = roundf(n * 256);
+	raw_bits = roundf(n * (1 << nbits));
 }
 
 Fixed::Fixed(const Fixed &copy)

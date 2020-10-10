@@ -6,7 +6,7 @@
 /*   By: wquinoa <wquinoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/26 17:35:31 by wquinoa           #+#    #+#             */
-/*   Updated: 2020/09/29 20:55:35 by wquinoa          ###   ########.fr       */
+/*   Updated: 2020/10/10 05:37:16 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int				Fixed::toInt() const
 
 float			Fixed::toFloat() const
 {
-	return (raw_bits / 256.0);
+	return (raw_bits * 1.0 / (1 << 8));
 }
 
 // Constructors
@@ -74,18 +74,6 @@ std::ostream	&operator<<(std::ostream &stream, const Fixed &src)
 	stream << src.toFloat();
 	return (stream);
 }
-
-// Comparison operators
-
-//bool	Fixed::operator> (const Fixed &cmp)
-//{
-	//return (raw_bits > cmp.getRawBits());
-//}
-
-//bool	Fixed::operator< (const Fixed &cmp)
-//{
-	//return (raw_bits < cmp.getRawBits());
-//}
 
 bool	Fixed::operator> (const Fixed &cmp) const
 {
@@ -138,7 +126,7 @@ Fixed	Fixed::operator/ (const Fixed &add)
 {
 	Fixed	sum;
 
-	sum.setRawBits((raw_bits / 256.0) / add.getRawBits());
+	sum.setRawBits(raw_bits / add.getRawBits() * (1 << nbits));
 	return (sum);
 }
 
@@ -146,7 +134,7 @@ Fixed	Fixed::operator* (const Fixed &add)
 {
 	Fixed	sum;
 
-	sum.setRawBits((raw_bits / 256.0) * add.getRawBits());
+	sum.setRawBits((raw_bits * 1.0 / (1 << nbits)) * add.getRawBits());
 	return (sum);
 }
 
