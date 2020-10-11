@@ -6,7 +6,7 @@
 /*   By: wquinoa <wquinoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/02 03:59:12 by wquinoa           #+#    #+#             */
-/*   Updated: 2020/10/02 04:33:08 by wquinoa          ###   ########.fr       */
+/*   Updated: 2020/10/10 08:20:51 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,15 @@
 class TacticalMarine : public ISpaceMarine
 {
 public:
-	TacticalMarine();
-	TacticalMarine(const TacticalMarine &copy);
-	~TacticalMarine();
-	TacticalMarine &operator=(const TacticalMarine &copy);
+	inline TacticalMarine();
+	inline TacticalMarine(const TacticalMarine &copy);
+	inline ~TacticalMarine();
+	inline TacticalMarine &operator=(const TacticalMarine &copy);
 
-	TacticalMarine *clone() const;
-	void			battleCry() const;
-	void			rangedAttack() const;
-	void			meleeAttack() const;
-	void			assfuck();
+	inline TacticalMarine *clone() const;
+	inline void			battleCry() const;
+	inline void			rangedAttack() const;
+	inline void			meleeAttack() const;
 };
 
 #endif

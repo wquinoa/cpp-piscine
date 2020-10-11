@@ -6,7 +6,7 @@
 /*   By: wquinoa <wquinoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/02 03:58:15 by wquinoa           #+#    #+#             */
-/*   Updated: 2020/10/02 04:39:49 by wquinoa          ###   ########.fr       */
+/*   Updated: 2020/10/11 08:52:37 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ public:
 	void				battleCry() const;
 	void				rangedAttack() const;
 	void				meleeAttack() const;
-	void				assfuck();
 };
 
 #endif
