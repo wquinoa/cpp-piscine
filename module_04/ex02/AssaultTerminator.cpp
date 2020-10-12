@@ -6,11 +6,17 @@
 /*   By: wquinoa <wquinoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/02 03:58:15 by wquinoa           #+#    #+#             */
-/*   Updated: 2020/10/11 09:07:44 by wquinoa          ###   ########.fr       */
+/*   Updated: 2020/10/11 11:56:33 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AssaultTerminator.hpp"
+
+// • Birth: "* teleports from space *"
+// • battleCry() : "This code is unclean. PURIFY IT!"
+// • rangedAttack : "* does nothing *"
+// • meleeAttack : "* attacks with chainfists *"
+// • Death: "I’ll be back..."
 
 AssaultTerminator::AssaultTerminator()
 {
@@ -24,10 +30,12 @@ AssaultTerminator::~AssaultTerminator()
 
 AssaultTerminator::AssaultTerminator(const AssaultTerminator &copy)
 {
+	(void)copy;
 }
 
 AssaultTerminator	&AssaultTerminator::operator=(const AssaultTerminator &copy)
 {
+	(void)copy;
 	return (*this);
 }
 
@@ -44,11 +52,10 @@ void				AssaultTerminator::battleCry() const
 
 void				AssaultTerminator::rangedAttack() const
 {
-	std::cout << "* dos nothing *" << std::endl;
+	std::cout << "* does nothing *" << std::endl;
 }
 
-
-void				AssaultTerminator::rangedAttack() const
+void				AssaultTerminator::meleeAttack() const
 {
 	std::cout << "* attacks with chainfists *" << std::endl;
 }

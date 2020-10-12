@@ -6,7 +6,7 @@
 /*   By: wquinoa <wquinoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/19 21:14:38 by wquinoa           #+#    #+#             */
-/*   Updated: 2020/09/25 16:01:33 by wquinoa          ###   ########.fr       */
+/*   Updated: 2020/10/12 23:54:44 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,12 @@
 class AMateria
 {
 public:
-	AMateria(std::string const &type);
-	AMateria(const AMateria &copy);
-	~AMateria();
-	AMateria			&operator=(const AMateria &copy);
+	AMateria();
+	AMateria(std::string const &, unsigned);
+	virtual AMateria(std::string const &type);
+	virtual AMateria(const AMateria &copy);
+	virtual ~AMateria();
+	virtual AMateria			&operator=(const AMateria &copy);
 
 	std::string const	&getType() const;
 	unsigned int		getXP() const;
@@ -29,9 +31,9 @@ public:
 	virtual void		use(ICharacter &tartget);
 
 private:
-	AMateria();
-	unsigned int		xp_;
-	std::string			type_;
+	unsigned int		_xp;
+	std::string	_type;
+
 };
 
 #endif

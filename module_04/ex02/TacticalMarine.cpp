@@ -6,20 +6,26 @@
 /*   By: wquinoa <wquinoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/02 03:59:12 by wquinoa           #+#    #+#             */
-/*   Updated: 2020/10/10 07:56:52 by wquinoa          ###   ########.fr       */
+/*   Updated: 2020/10/11 11:56:06 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "TacticalMarine.hpp"
 
+// Upon creation, displays: "Tactical Marine ready for battle!"
+// • battleCry() displays: "For the holy PLOT!"
+// • rangedAttack() displays: "* attacks with a bolter *"
+// • meleeAttack() displays: "* attacks with a chainsword *"
+// • Upon death, displays: "Aaargh..."
+
 TacticalMarine::TacticalMarine()
 {
-	std::cout << "* teleports from space *"  << std::endl;
+	std::cout << "Tactical Marine ready for battle!"  << std::endl;
 }
 
 TacticalMarine::~TacticalMarine()
 {
-	std::cout << "I’ll be back..." << std::endl;
+	std::cout << "Aaargh..." << std::endl;
 }
 
 TacticalMarine::TacticalMarine(const TacticalMarine &copy)
@@ -44,15 +50,15 @@ TacticalMarine	*TacticalMarine::clone() const
 
 void			TacticalMarine::battleCry() const
 {
-	std::cout << "This code is unclean. PURIFY IT!" << std::endl;
+	std::cout << "For the holy PLOT!" << std::endl;
 }
 
 void			TacticalMarine::rangedAttack() const
 {
-	std::cout <<  "* does nothing *" << std::endl;
+	std::cout <<  "* attacks with a bolter *" << std::endl;
 }
 
 void			TacticalMarine::meleeAttack() const
 {
-	std::cout << "* attacks with chainfists *" << std::endl;
+	std::cout << "* attacks with a chainsword *" << std::endl;
 }

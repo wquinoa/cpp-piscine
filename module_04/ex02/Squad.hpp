@@ -6,7 +6,7 @@
 /*   By: wquinoa <wquinoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/02 03:58:15 by wquinoa           #+#    #+#             */
-/*   Updated: 2020/10/11 08:35:53 by wquinoa          ###   ########.fr       */
+/*   Updated: 2020/10/11 09:10:27 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ protected:
 	Squad(int);
 
 private:
-	ISpaceMarine	**platoon = NULL;
-	size_t			count = 0;
+	ISpaceMarine	**platoon;
+	size_t			count;
 };
 
 #endif

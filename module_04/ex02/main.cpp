@@ -6,7 +6,7 @@
 /*   By: wquinoa <wquinoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/02 03:58:15 by wquinoa           #+#    #+#             */
-/*   Updated: 2020/10/11 08:49:05 by wquinoa          ###   ########.fr       */
+/*   Updated: 2020/10/11 16:59:24 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,33 @@
 
 int		main(void)
 {
-	ISpaceMarine* bob = new TacticalMarine;
-	ISpaceMarine* jim = new AssaultTerminator;
 	ISquad* vlc = new Squad;
+	ISpaceMarine *a;
 
-	vlc->push(bob);
-	vlc->push(jim);
-	for (int i = 0; i < vlc->getCount(); ++i)
+
+	for (int i = 0; i <= 1000; i++)
+	{
+		if (i % 2)
+			a = new TacticalMarine;
+		else
+			a = new AssaultTerminator;
+		vlc->push(a);
+	}
+	for (int i = -100; i < vlc->getCount(); ++i)
 	{
 		ISpaceMarine* cur = vlc->getUnit(i);
-		cur->battleCry();
-		cur->rangedAttack();
-		cur->meleeAttack();
+		if (i % 9 == 0 && cur) // getUnit may return NULL
+		{
+			std::cout << "\n--------\nUnit number: " <<  i << "/" << vlc->getCount() << "\n--------\n" << std::endl;
+			cur->battleCry();
+			cur->rangedAttack();
+			cur->meleeAttack();
+		}
 	}
+	std::cout << "\ndo a leak check and press any key" << std::endl;
+	std::getchar();
 	delete vlc;
+	std::cout << "\ndo a leak check and press any key" << std::endl;
+	std::getchar();
 	return 0;
 }
