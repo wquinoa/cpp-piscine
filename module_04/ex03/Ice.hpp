@@ -6,7 +6,7 @@
 /*   By: wquinoa <wquinoa@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/19 21:14:38 by wquinoa           #+#    #+#             */
-/*   Updated: 2020/10/14 19:54:19 by wquinoa          ###   ########.fr       */
+/*   Updated: 2020/10/14 21:17:05 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@ class Ice : public AMateria
 {
 public:
 	Ice();
-	inline Ice(std::string const &type);
+	Ice(std::string const &type);
 	Ice(const Ice &copy);
 	~Ice();
 	Ice &operator=(const Ice &copy);
 
-	void				use(ICharacter &);
-	Ice					*clone() const = 0;
+	Ice			*clone() const;
+	void		use(ICharacter &);
 };
 
 #endif

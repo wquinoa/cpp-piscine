@@ -6,7 +6,7 @@
 /*   By: wquinoa <wquinoa@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/19 21:14:38 by wquinoa           #+#    #+#             */
-/*   Updated: 2020/10/14 20:01:42 by wquinoa          ###   ########.fr       */
+/*   Updated: 2020/10/14 22:47:18 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,17 @@
 
 MateriaSource::MateriaSource()
 {
-	bzero(collection_, sizeof(MateriaSource *) * 4);
+	bzero(collection_, sizeof(MateriaSource *) * 5);
 }
 
 MateriaSource::~MateriaSource()
 {
-	for (int i = 0; i < 5; i++)
+	for (int i = 0; i < 4; i++)
 	{
-		if (collection_[i])
+		if (collection_[i] != NULL)
+		{
 			delete collection_[i];
+		}
 	}
 }
 
@@ -49,6 +51,8 @@ void			MateriaSource::learnMateria(AMateria *materia)
 		i++;
 	if (i < 4)
 		collection_[i] = materia;
+	else
+		std::cout << "Learn " << REDIFY(materia->getType()) << ": Inventory full" << std::endl;
 }
 
 

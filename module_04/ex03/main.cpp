@@ -6,7 +6,7 @@
 /*   By: wquinoa <wquinoa@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/19 21:14:38 by wquinoa           #+#    #+#             */
-/*   Updated: 2020/10/14 19:57:01 by wquinoa          ###   ########.fr       */
+/*   Updated: 2020/10/14 23:43:10 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,58 @@
 #include "MateriaSource.hpp"
 #include "IMateriaSource.hpp"
 #include "ICharacter.hpp"
+
+//void	print_materia()
+//{
+
+//}
+
+void	materia_test()
+{
+	IMateriaSource *source = new MateriaSource();
+	ICharacter*	zaz = new Character("zaz");
+	ICharacter*	bob = new Character("bob");
+	AMateria	*materia, *tmp;
+
+	for (int i = 0; i <= 5; i++)
+	{
+		if (i % 2 == 0)
+			materia = new Ice("ice");
+		else
+			materia = new Cure("cure");
+		source->learnMateria(materia);
+		if (i < 0 || i > 3)
+			delete materia;
+	}		
+
+	for (int i = 0; i < 5; i++)
+	{
+		if (i % 2 == 0)
+			materia = source->createMateria("ice");
+		else
+			materia = source->createMateria("cure");
+		zaz->equip(materia);
+		if (i < 0 || i > 3)
+			delete materia;
+		if (i == 3)
+		{
+			tmp = materia;
+			std::cout << materia << std::endl;
+		}
+	}
+	for (int i = -1; i < 5; i++)
+	{
+		std::cout << "slot number " << i << ": ";
+		zaz->use(i, *bob);
+	}
+	zaz->use(3, *bob);
+	zaz->unequip(3);
+	zaz->unequip(3);
+	delete materia;
+	delete bob;
+	delete zaz;
+	delete source;
+}
 
 int		main(void)
 {
@@ -41,5 +93,11 @@ int		main(void)
 	delete zaz;
 	delete src;
 
+	std::cout << "\nPress any key to run my tests" << std::endl;
+	//std::getchar();
+	materia_test();
+
+	std::cout << "Press any key after running leak checks" << std::endl;
+	std::getchar();
 	return 0;
 }

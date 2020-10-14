@@ -6,11 +6,13 @@
 /*   By: wquinoa <wquinoa@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/19 21:14:38 by wquinoa           #+#    #+#             */
-/*   Updated: 2020/10/14 19:53:34 by wquinoa          ###   ########.fr       */
+/*   Updated: 2020/10/14 22:12:40 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Ice.hpp"
+
+class Ice;
 
 Ice::Ice() : AMateria("ice")
 {
@@ -39,7 +41,7 @@ void				Ice::use(ICharacter &someguy)
 	std::cout << "* shoots an ice bolt at " << someguy.getName() << " *" << std::endl;
 }
 
-Ice					*Ice::clone() const
+Ice	*Ice::clone() const
 {
-	return new Ice("ice");
+	return new Ice("cure");
 }

@@ -6,7 +6,7 @@
 /*   By: wquinoa <wquinoa@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/19 21:14:38 by wquinoa           #+#    #+#             */
-/*   Updated: 2020/10/14 20:08:44 by wquinoa          ###   ########.fr       */
+/*   Updated: 2020/10/14 23:52:43 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ Character::Character()
 Character::Character(std::string const &name)
 {
 	_name = name;
-	bzero(inventory, sizeof(*inventory));
+	bzero(inventory, sizeof(AMateria *) * 5);
 }
 
 Character::Character(Character const &someguy)
@@ -54,8 +54,10 @@ void				Character::equip(AMateria *m)
 
 	while (inventory[i])
 		i++;
-	if (i < 4)
+	if (i <= 3 && i >= 0)
 		inventory[i] = m;
+	else
+		std::cout << GREENIFY(_name) << "'s inventory is full";
 }
 
 void				Character::unequip(int i)
@@ -63,8 +65,7 @@ void				Character::unequip(int i)
 	if (i >= 0 && i <= 3 && inventory[i] != NULL)
 		inventory[i] = NULL;
 	else
-		std::cout << "This is an empty slot" << std::endl;
-	
+		std::cout << "Nothing to unequip" << std::endl;
 }
 
 void				Character::use(int i, ICharacter &someguy)
