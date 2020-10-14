@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AMateria.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wquinoa <wquinoa@student.42.fr>            +#+  +:+       +#+        */
+/*   By: wquinoa <wquinoa@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/19 21:14:38 by wquinoa           #+#    #+#             */
-/*   Updated: 2020/10/12 23:54:44 by wquinoa          ###   ########.fr       */
+/*   Updated: 2020/10/14 19:56:38 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,29 @@
 # define AMATERIA_HPP
 # include <iostream>
 # include "ICharacter.hpp"
+# define MAX_XP (UINT32_MAX - 10)
 
 class AMateria
 {
 public:
 	AMateria();
 	AMateria(std::string const &, unsigned);
-	virtual AMateria(std::string const &type);
-	virtual AMateria(const AMateria &copy);
+	AMateria(std::string const &type);
+	AMateria(const AMateria &copy);
 	virtual ~AMateria();
-	virtual AMateria			&operator=(const AMateria &copy);
+	virtual AMateria	&operator=(const AMateria &copy);
 
 	std::string const	&getType() const;
 	unsigned int		getXP() const;
+	void				setType(std::string);
+	void				setXp(unsigned int);
 	virtual AMateria	*clone() const = 0;
 	virtual void		use(ICharacter &tartget);
+	void				addExp();
 
 private:
 	unsigned int		_xp;
-	std::string	_type;
+	std::string			_type;
 
 };
 

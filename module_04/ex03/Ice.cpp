@@ -3,16 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   Ice.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wquinoa <wquinoa@student.42.fr>            +#+  +:+       +#+        */
+/*   By: wquinoa <wquinoa@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/19 21:14:38 by wquinoa           #+#    #+#             */
-/*   Updated: 2020/10/12 23:55:58 by wquinoa          ###   ########.fr       */
+/*   Updated: 2020/10/14 19:53:34 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Ice.hpp"
 
-Ice::Ice() : AMateria("Ice")
+Ice::Ice() : AMateria("ice")
+{
+}
+
+Ice::Ice(std::string const &name) : AMateria(name)
 {
 }
 
@@ -20,33 +24,22 @@ Ice::~Ice()
 {
 }
 
-Ice::Ice(const Ice &copy)
+Ice::Ice(const Ice &copy) : AMateria(copy)
 {
-	(void)copy;
 }
 
-Ice	&Ice::operator=(const Ice &copy)
+Ice					&Ice::operator=(const Ice &copy)
 {
-	return (*this);
+	return ((Ice &)AMateria::operator=(copy));
 }
 
-void				Ice::use(ICharacter &guy)
+void				Ice::use(ICharacter &someguy)
 {
-	unsigned newXp = AMateria::getXp() + 10;
-	AMateria::setType();
+	addExp();
+	std::cout << "* shoots an ice bolt at " << someguy.getName() << " *" << std::endl;
 }
 
-Ice			*Ice::clone() const
+Ice					*Ice::clone() const
 {
-	Ice *hi = new Ice(*this);
-}
-
-unsigned int		Ice::getXP() const
-{
-
-}
-
-std::string const	&Ice::getType() const
-{
-
+	return new Ice("ice");
 }

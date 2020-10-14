@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AMateria.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wquinoa <wquinoa@student.42.fr>            +#+  +:+       +#+        */
+/*   By: wquinoa <wquinoa@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/19 21:14:37 by wquinoa           #+#    #+#             */
-/*   Updated: 2020/10/12 23:53:11 by wquinoa          ###   ########.fr       */
+/*   Updated: 2020/10/14 19:26:14 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,16 @@ unsigned int		AMateria::getXP() const
 	return (_xp);
 }
 
+void				AMateria::setType(std::string type)
+{
+	_type = type;
+}
+
+void				AMateria::setXp(unsigned int xp)
+{
+	_xp = xp;
+}
+
 AMateria			&AMateria::operator=(const AMateria &copy)
 {
 	_xp = copy.getXP();
@@ -53,5 +63,11 @@ AMateria			&AMateria::operator=(const AMateria &copy)
 void				AMateria::use(ICharacter &tartget)
 {
 	(void)tartget;
-	_xp += 10;
+	addExp();
+}
+
+void				AMateria::addExp()
+{
+	if (_xp <= MAX_XP)
+		_xp += 10;
 }
