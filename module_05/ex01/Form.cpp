@@ -3,16 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   Form.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user <user@student.21-school.ru>           +#+  +:+       +#+        */
+/*   By: wquinoa <wquinoa@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 17:32:58 by user              #+#    #+#             */
-/*   Updated: 2020/10/15 17:32:58 by user             ###   ########.fr       */
+/*   Updated: 2020/10/15 18:47:37 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
 
-Form::Form()
+const char *Form::GradeTooLowException::what() const throw()
+{
+	return ("the signer's grade is too low");
+}
+
+const char *Form::GradeTooHighException::what() const throw()
+{
+	return ("the signer's grade is too high");
+}
+
+Form::Form() : name("Form"), grade(1)
 {
 }
 
@@ -20,11 +30,44 @@ Form::~Form()
 {
 }
 
-Form::Form(const Form &copy)
+Form::Form(const std::string &_name, const unsigned _grade) : name(_name), grade(_grade)
+{
+	if (grade < 1)
+		throw Form::GradeTooHighException();
+	else if (grade > 150)
+		throw Form::GradeTooLowException();
+	isSigned = false;
+}
+
+Form::Form(const Form &copy) : name(copy.name), grade(copy.grade), isSigned(copy.isSigned)
 {
 }
 
 Form	&Form::operator=(const Form &copy)
 {
+	*this = Form(copy);
 	return (*this);
+}
+
+
+std::string	const	&Form::getName() const
+{
+	return (name);
+}
+
+unsigned const		Form::getGrade() const
+{
+	return (grade);
+}
+
+bool const			Form::isItSigned() const
+{
+	return (isSigned);
+}
+
+void				Form::beSigned(Bureaucrat const &someguy)
+{
+	if (someguy.getGrade() > getGrade())
+		throw Form::GradeTooLowException();
+	isSigned = true;
 }

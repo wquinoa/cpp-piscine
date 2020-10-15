@@ -6,7 +6,7 @@
 /*   By: wquinoa <wquinoa@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 00:02:27 by wquinoa           #+#    #+#             */
-/*   Updated: 2020/10/15 17:19:00 by wquinoa          ###   ########.fr       */
+/*   Updated: 2020/10/15 17:57:58 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,13 @@ Bureaucrat::Bureaucrat(std::string const &name) : _name(name)
 	_grade = 150;
 }
 
-Bureaucrat::Bureaucrat(std::string const &name, int grade) : _name(name), _grade(grade)
+Bureaucrat::Bureaucrat(std::string const &name, int grade) : _name(name)
 {
+	if (grade < 1)
+		throw GradeTooHighException();
+	else if (grade > 150)
+		throw GradeTooLowException();
+	_grade = grade;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &copy) : _name(copy.getName()), _grade(copy._grade)
