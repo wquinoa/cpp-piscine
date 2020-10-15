@@ -6,7 +6,7 @@
 /*   By: wquinoa <wquinoa@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 00:02:27 by wquinoa           #+#    #+#             */
-/*   Updated: 2020/10/15 18:45:47 by wquinoa          ###   ########.fr       */
+/*   Updated: 2020/10/15 19:17:40 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 # define BUREAUCRAT_HPP
 # include <iostream>
 # include "Form.hpp"
-# define GREENIFY(x) ("\033[32;1m" + x + "\033[0;m")
-# define REDIFY(x) ("\033[31;1m" + x + "\033[0;m")
+# define REDIFY(x) ("\033[31m" + (std::string)x + "\033[0;m")
+# define GREENIFY(x) ("\033[32m" + (std::string)x + "\033[0;m")
 
 class Form;
 

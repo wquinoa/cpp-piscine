@@ -6,7 +6,7 @@
 /*   By: wquinoa <wquinoa@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 17:32:58 by user              #+#    #+#             */
-/*   Updated: 2020/10/15 18:46:09 by wquinoa          ###   ########.fr       */
+/*   Updated: 2020/10/15 18:58:54 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,7 @@ private:
 	const unsigned		grade;
 	const std::string	name;
 };
+
+std::ostream	&operator<<(std::ostream &, const Form &);
 
 #endif
