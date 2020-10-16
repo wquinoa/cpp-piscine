@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wquinoa <wquinoa@student.21-school.ru>     +#+  +:+       +#+        */
+/*   By: wquinoa <wquinoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 17:32:58 by user              #+#    #+#             */
-/*   Updated: 2020/10/15 19:50:54 by wquinoa          ###   ########.fr       */
+/*   Updated: 2020/10/16 08:32:00 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,10 @@ const char *Form::GradeTooHighException::what() const throw()
 const char *Form::AlreadySignedException::what() const throw()
 {
 	return ("the form is already signed");
+}
+
+Form::Form() : name("form"), signGrade(0), execGrade(0), isSigned(false)
+{
 }
 
 Form::~Form()
@@ -63,7 +67,7 @@ unsigned const		Form::getSGrade() const
 	return (signGrade);
 }
 
-unsigned const		Form::getSGrade() const
+unsigned const		Form::getEGrade() const
 {
 	return (execGrade);
 }
@@ -71,6 +75,11 @@ unsigned const		Form::getSGrade() const
 bool const			Form::isItSigned() const
 {
 	return (isSigned);
+}
+
+std::string const	Form::getTarget() const
+{
+	return (target);
 }
 
 void				Form::beSigned(Bureaucrat const &someguy)
@@ -82,7 +91,19 @@ void				Form::beSigned(Bureaucrat const &someguy)
 	isSigned = true;
 }
 
-std::ostream	&operator<<(std::ostream &stream, const Form &form)
+void				Form::execute(Bureaucrat const &executor) const
+{
+	if (executor.getGrade() > getEGrade())
+		throw Form::GradeTooLowException();
+	else
+		this->action();
+}
+
+void				Form::action() const
+{
+}
+
+std::ostream		&operator<<(std::ostream &stream, const Form &form)
 {
 	stream << "Form name   : " << form.getName() << ";\n";
 	stream << "Sign grade  : " << form.getSGrade() << ";\n";

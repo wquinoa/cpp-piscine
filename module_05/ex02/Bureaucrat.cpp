@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wquinoa <wquinoa@student.21-school.ru>     +#+  +:+       +#+        */
+/*   By: wquinoa <wquinoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 00:02:27 by wquinoa           #+#    #+#             */
-/*   Updated: 2020/10/15 18:38:32 by wquinoa          ###   ########.fr       */
+/*   Updated: 2020/10/16 08:22:25 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,11 +79,25 @@ void				Bureaucrat::signForm(Form &form) const
 	try
 	{
 		form.beSigned(*this);
-		std::cout << getName() << " signs " << form.getName() << std::endl;
+		std::cout << getName() << " signs " << form.getName() << " form" << std::endl;
 	}
 	catch (std::exception & e)
 	{
 		std::cout << getName() << " cannot sign " << form.getName() \
+		<< " because " << e.what() << std::endl;
+	}
+}
+
+void				Bureaucrat::executeForm(Form const &form) const
+{
+	try
+	{
+		form.execute(*this);
+		std::cout << getName() << " executes " << form.getName() << std::endl;
+	}
+	catch (std::exception & e)
+	{
+		std::cout << getName() << " cannot execute " << form.getName() \
 		<< " because " << e.what() << std::endl;
 	}
 }

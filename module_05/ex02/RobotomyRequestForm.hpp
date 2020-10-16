@@ -3,26 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user <user@student.21-school.ru>           +#+  +:+       +#+        */
+/*   By: wquinoa <wquinoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 19:22:42 by user              #+#    #+#             */
-/*   Updated: 2020/10/15 19:22:42 by user             ###   ########.fr       */
+/*   Updated: 2020/10/16 07:31:24 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ROBOTOMYREQUESTFORM_HPP
 # define ROBOTOMYREQUESTFORM_HPP
 # include <iostream>
+# include <ctime>
+# include "Form.hpp"
 
-class RobotomyRequestForm
+class RobotomyRequestForm : public Form
 {
 public:
-	RobotomyRequestForm();
+	RobotomyRequestForm(std::string);
 	RobotomyRequestForm(const RobotomyRequestForm &copy);
 	~RobotomyRequestForm();
 	RobotomyRequestForm &operator=(const RobotomyRequestForm &copy);
 
-private:
+	void		action() const;
 };
 
 #endif

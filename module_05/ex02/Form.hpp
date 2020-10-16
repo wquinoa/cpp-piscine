@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wquinoa <wquinoa@student.21-school.ru>     +#+  +:+       +#+        */
+/*   By: wquinoa <wquinoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 17:32:58 by user              #+#    #+#             */
-/*   Updated: 2020/10/15 19:50:13 by wquinoa          ###   ########.fr       */
+/*   Updated: 2020/10/16 06:59:45 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ public:
 	std::string	const	&getName() const;
 	unsigned const		getSGrade() const;
 	unsigned const		getEGrade() const;
+	std::string const	getTarget() const;
 	bool const			isItSigned() const;
 	void				beSigned(Bureaucrat const &);
 	void				execute(Bureaucrat const & executor) const;

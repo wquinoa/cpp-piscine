@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wquinoa <wquinoa@student.21-school.ru>     +#+  +:+       +#+        */
+/*   By: wquinoa <wquinoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 19:21:17 by user              #+#    #+#             */
-/*   Updated: 2020/10/15 20:03:34 by wquinoa          ###   ########.fr       */
+/*   Updated: 2020/10/16 08:14:48 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,22 +33,33 @@ ShrubberyCreationForm	&ShrubberyCreationForm::operator=(const ShrubberyCreationF
 
 void		ShrubberyCreationForm::action()
 {
-	std::cout << "	        # #### ####" << std::endl;
-	std::cout << "      ### \/#|### |/####" << std::endl;
-	std::cout << "     ##\/#/ \||/##/_/##/_#" << std::endl;
-	std::cout << "   ###  \/###|/ \/ # ###" << std::endl;
-	std::cout << " ##_\_#\_\## | #/###_/_####" << std::endl;
-	std::cout << "## #### # \ #| /  #### ##/##" << std::endl;
-	std::cout << " __#_--###`  |{,###---###-~" << std::endl;
-	std::cout << "           \ }{" << std::endl;
-	std::cout << "            }}{" << std::endl;
-	std::cout << "            }}{" << std::endl;
-	std::cout << "       ejm  {{}" << std::endl;
-	std::cout << "      , -=-~{ .-^- _" << std::endl;
-	std::cout << "            `}" << std::endl;
-	std::cout << "             {" << std::endl;
-	std::cout << "" << std::endl;
-	std::cout << "------------------------------------------------" << std::endl;
-	std::cout << "This ASCII pic can be found at" << std::endl;
-	std::cout << "https://asciiart.website/index.php?art=plants/trees" << std::endl;
+	std::ofstream	file;
+	std::string		filename = getTarget() + "_shrubbbery";
+
+	file.open(filename, std::ios::out | std::ios::trunc);
+	if (file.is_open() == false)
+	{
+		std::cout << "Couldn't open " << filename << std::endl;
+		return ;
+	}
+	file << "	        # #### ####" << std::endl;
+	file << "      ### \\/#|### |/####" << std::endl;
+	file << "     ##\\/#/ \\||/##/_/##/_#" << std::endl;
+	file << "   ###  \\/###|/ \\/ # ###" << std::endl;
+	file << " ##_\\_#\\_\\## | #/###_/_####" << std::endl;
+	file << "## #### # \\ #| /  #### ##/##" << std::endl;
+	file << " __#_--###`  |{,###---###-~" << std::endl;
+	file << "           \\ }{" << std::endl;
+	file << "            }}{" << std::endl;
+	file << "            }}{" << std::endl;
+	file << "       ejm  {{}" << std::endl;
+	file << "      , -=-~{ .-^- _" << std::endl;
+	file << "            `}" << std::endl;
+	file << "             {" << std::endl;
+	file << "" << std::endl;
+	file << "------------------------------------------------" << std::endl;
+	file << "This ASCII pic can be found at" << std::endl;
+	file << "https://asciiart.website/index.php?art=plants/trees" << std::endl;
+
+	file.close();
 }
