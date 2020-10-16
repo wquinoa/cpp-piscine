@@ -6,7 +6,7 @@
 /*   By: wquinoa <wquinoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 19:21:17 by user              #+#    #+#             */
-/*   Updated: 2020/10/16 08:14:48 by wquinoa          ###   ########.fr       */
+/*   Updated: 2020/10/16 12:49:04 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,10 @@ ShrubberyCreationForm	&ShrubberyCreationForm::operator=(const ShrubberyCreationF
 	return (*this);
 }
 
-void		ShrubberyCreationForm::action()
+void		ShrubberyCreationForm::action() const
 {
 	std::ofstream	file;
-	std::string		filename = getTarget() + "_shrubbbery";
+	std::string		filename = getTarget() + "_shrubbery";
 
 	file.open(filename, std::ios::out | std::ios::trunc);
 	if (file.is_open() == false)

@@ -6,7 +6,7 @@
 /*   By: wquinoa <wquinoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 17:32:58 by user              #+#    #+#             */
-/*   Updated: 2020/10/16 06:59:45 by wquinoa          ###   ########.fr       */
+/*   Updated: 2020/10/16 12:23:13 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ public:
 	bool const			isItSigned() const;
 	void				beSigned(Bureaucrat const &);
 	void				execute(Bureaucrat const & executor) const;
-	virtual void		action() const;
+	virtual void		action() const = 0;
 
 	class GradeTooLowException : public std::exception 
 	{

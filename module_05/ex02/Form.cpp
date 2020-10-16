@@ -6,7 +6,7 @@
 /*   By: wquinoa <wquinoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 17:32:58 by user              #+#    #+#             */
-/*   Updated: 2020/10/16 08:32:00 by wquinoa          ###   ########.fr       */
+/*   Updated: 2020/10/16 12:51:21 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ name(copy.name), signGrade(copy.signGrade), execGrade(copy.execGrade), isSigned(
 
 Form	&Form::operator=(const Form &copy)
 {
-	*this = Form(copy);
+	target = copy.target;
 	return (*this);
 }
 
@@ -97,10 +97,6 @@ void				Form::execute(Bureaucrat const &executor) const
 		throw Form::GradeTooLowException();
 	else
 		this->action();
-}
-
-void				Form::action() const
-{
 }
 
 std::ostream		&operator<<(std::ostream &stream, const Form &form)
