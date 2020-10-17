@@ -6,7 +6,7 @@
 /*   By: wquinoa <wquinoa@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 00:02:27 by wquinoa           #+#    #+#             */
-/*   Updated: 2020/10/15 18:38:32 by wquinoa          ###   ########.fr       */
+/*   Updated: 2020/10/17 21:56:15 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,8 @@ Bureaucrat::Bureaucrat(const Bureaucrat &copy) : _name(copy.getName()), _grade(c
 
 Bureaucrat	&Bureaucrat::operator=(const Bureaucrat &copy)
 {
-	*this = Bureaucrat(copy);
+	if (this != &copy)
+		_grade = copy._grade;
 	return (*this);
 }
 

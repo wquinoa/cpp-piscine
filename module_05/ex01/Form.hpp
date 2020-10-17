@@ -6,7 +6,7 @@
 /*   By: wquinoa <wquinoa@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 17:32:58 by user              #+#    #+#             */
-/*   Updated: 2020/10/15 18:58:54 by wquinoa          ###   ########.fr       */
+/*   Updated: 2020/10/17 21:54:49 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ public:
 	Form &operator=(const Form &copy);
 
 	std::string	const	&getName() const;
-	unsigned const		getGrade() const;
-	bool const			isItSigned() const;
+	unsigned			getGrade() const;
+	bool				isItSigned() const;
 	void				beSigned(Bureaucrat const &);
 
 	class GradeTooLowException : public std::exception 
@@ -50,9 +50,9 @@ public:
 
 private:
 	Form();
-	bool				isSigned;
-	const unsigned		grade;
 	const std::string	name;
+	const unsigned		grade;
+	bool				isSigned;
 };
 
 std::ostream	&operator<<(std::ostream &, const Form &);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wquinoa <wquinoa@student.42.fr>            +#+  +:+       +#+        */
+/*   By: wquinoa <wquinoa@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 19:21:17 by user              #+#    #+#             */
-/*   Updated: 2020/10/16 12:49:04 by wquinoa          ###   ########.fr       */
+/*   Updated: 2020/10/17 21:44:01 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,11 @@ ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &copy) 
 
 ShrubberyCreationForm	&ShrubberyCreationForm::operator=(const ShrubberyCreationForm &copy)
 {
-	*this = ShrubberyCreationForm(copy);
+	if (this != &copy)
+	{
+		target = copy.target;
+		isSigned = copy.isSigned;
+	}
 	return (*this);
 }
 

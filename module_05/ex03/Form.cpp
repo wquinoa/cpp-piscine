@@ -6,7 +6,7 @@
 /*   By: wquinoa <wquinoa@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 17:32:58 by user              #+#    #+#             */
-/*   Updated: 2020/10/17 20:48:14 by wquinoa          ###   ########.fr       */
+/*   Updated: 2020/10/17 21:41:57 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ const char *Form::AlreadySignedException::what() const throw()
 	return ("the form is already signed");
 }
 
-Form::Form() : name("form"), signGrade(0), execGrade(0), isSigned(false)
+Form::Form() :signGrade(0), execGrade(0)
 {
 }
 
@@ -52,7 +52,11 @@ name(copy.name), signGrade(copy.signGrade), execGrade(copy.execGrade), isSigned(
 
 Form	&Form::operator=(const Form &copy)
 {
-	target = copy.target;
+	if (this != &copy)
+	{
+		isSigned = copy.isSigned;
+		target = copy.target;
+	}
 	return (*this);
 }
 

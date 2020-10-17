@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wquinoa <wquinoa@student.42.fr>            +#+  +:+       +#+        */
+/*   By: wquinoa <wquinoa@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 17:32:58 by user              #+#    #+#             */
-/*   Updated: 2020/10/16 12:51:21 by wquinoa          ###   ########.fr       */
+/*   Updated: 2020/10/17 21:51:53 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,22 +62,22 @@ std::string	const	&Form::getName() const
 	return (name);
 }
 
-unsigned const		Form::getSGrade() const
+unsigned			Form::getSGrade() const
 {
 	return (signGrade);
 }
 
-unsigned const		Form::getEGrade() const
+unsigned			Form::getEGrade() const
 {
 	return (execGrade);
 }
 
-bool const			Form::isItSigned() const
+bool				Form::isItSigned() const
 {
 	return (isSigned);
 }
 
-std::string const	Form::getTarget() const
+std::string			Form::getTarget() const
 {
 	return (target);
 }

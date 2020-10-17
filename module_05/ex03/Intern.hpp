@@ -6,7 +6,7 @@
 /*   By: wquinoa <wquinoa@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 12:53:06 by wquinoa           #+#    #+#             */
-/*   Updated: 2020/10/17 20:52:50 by wquinoa          ###   ########.fr       */
+/*   Updated: 2020/10/17 21:18:11 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ public:
 	Intern &operator=(const Intern &copy);
 
 	Form		*makeForm(std::string type, std::string _target);
+	std::string	getName() const;
 
 	class NoSuchFormException : public std::exception 
 	{

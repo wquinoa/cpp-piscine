@@ -6,7 +6,7 @@
 /*   By: wquinoa <wquinoa@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 12:53:06 by wquinoa           #+#    #+#             */
-/*   Updated: 2020/10/17 20:55:07 by wquinoa          ###   ########.fr       */
+/*   Updated: 2020/10/17 21:18:03 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,14 @@ Intern::Intern(const Intern &copy) : name(copy.name)
 {
 }
 
+std::string		Intern::getName() const
+{
+	return (name);
+}
+
 Intern			&Intern::operator=(const Intern &copy)
 {
-	*this = Intern(copy);
+	name = copy.getName();
 	return (*this);
 }
 

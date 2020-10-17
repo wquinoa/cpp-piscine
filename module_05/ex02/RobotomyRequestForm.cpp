@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RobotomyRequestForm.cpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wquinoa <wquinoa@student.42.fr>            +#+  +:+       +#+        */
+/*   By: wquinoa <wquinoa@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 19:22:42 by user              #+#    #+#             */
-/*   Updated: 2020/10/16 07:37:55 by wquinoa          ###   ########.fr       */
+/*   Updated: 2020/10/17 21:40:59 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,11 @@ RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &copy) : Form
 
 RobotomyRequestForm	&RobotomyRequestForm::operator=(const RobotomyRequestForm &copy)
 {
-	*this = RobotomyRequestForm(copy);
+	if (this != &copy)
+	{
+		isSigned = copy.isSigned;
+		target = copy.target;
+	}
 	return (*this);
 }
 

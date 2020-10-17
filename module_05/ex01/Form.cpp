@@ -6,7 +6,7 @@
 /*   By: wquinoa <wquinoa@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 17:32:58 by user              #+#    #+#             */
-/*   Updated: 2020/10/15 19:05:55 by wquinoa          ###   ########.fr       */
+/*   Updated: 2020/10/17 21:55:44 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,8 @@ Form::Form(const Form &copy) : name(copy.name), grade(copy.grade), isSigned(copy
 
 Form	&Form::operator=(const Form &copy)
 {
-	*this = Form(copy);
+	if (this != &copy)
+		isSigned = copy.isSigned;
 	return (*this);
 }
 
@@ -60,12 +61,12 @@ std::string	const	&Form::getName() const
 	return (name);
 }
 
-unsigned const		Form::getGrade() const
+unsigned			Form::getGrade() const
 {
 	return (grade);
 }
 
-bool const			Form::isItSigned() const
+bool 				Form::isItSigned() const
 {
 	return (isSigned);
 }

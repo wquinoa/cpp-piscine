@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wquinoa <wquinoa@student.42.fr>            +#+  +:+       +#+        */
+/*   By: wquinoa <wquinoa@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 17:32:58 by user              #+#    #+#             */
-/*   Updated: 2020/10/16 13:04:02 by wquinoa          ###   ########.fr       */
+/*   Updated: 2020/10/17 21:38:09 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,13 +54,11 @@ public:
 
 protected:
 	Form(const std::string &, const unsigned, const unsigned, std::string);
-
-private:
 	Form();
-	bool				isSigned;
+	const std::string	name;
 	const unsigned		signGrade;
 	const unsigned		execGrade;
-	const std::string	name;
+	bool				isSigned;
 	std::string			target;
 };
 
