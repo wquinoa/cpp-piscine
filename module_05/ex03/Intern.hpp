@@ -3,16 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   Intern.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wquinoa <wquinoa@student.42.fr>            +#+  +:+       +#+        */
+/*   By: wquinoa <wquinoa@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 12:53:06 by wquinoa           #+#    #+#             */
-/*   Updated: 2020/10/16 19:46:57 by wquinoa          ###   ########.fr       */
+/*   Updated: 2020/10/17 20:52:50 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef INTERN_HPP
 # define INTERN_HPP
-# include <iostream>
 # include "PresidentialPardonForm.hpp"
 # include "RobotomyRequestForm.hpp"
 # include "ShrubberyCreationForm.hpp"
@@ -20,22 +19,26 @@
 class Intern
 {
 public:
-	Intern();
+	Intern(std::string name);
 	Intern(const Intern &copy);
 	~Intern();
 	Intern &operator=(const Intern &copy);
 
-	//typedef		Form*(*folder_t)(std::string);
-
-	Form 		*getForm(std::string S);
 	Form		*makeForm(std::string type, std::string _target);
 
-private:
-	Form	*	getPresi(std::string);
-	Form	*	getRobo(std::string);
-	Form	*	getShrub(std::string);
-};
+	class NoSuchFormException : public std::exception 
+	{
+	public:
+		const char *what() const throw();
+	};
 
-//typedef Form *(*folder_t)(std::string);
+
+private:
+	Intern();
+	Form		*getPresi(std::string);
+	Form		*getRobo(std::string);
+	Form		*getShrub(std::string);
+	std::string	name;
+};
 
 #endif

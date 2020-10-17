@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wquinoa <wquinoa@student.42.fr>            +#+  +:+       +#+        */
+/*   By: wquinoa <wquinoa@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 17:32:58 by user              #+#    #+#             */
-/*   Updated: 2020/10/16 13:04:39 by wquinoa          ###   ########.fr       */
+/*   Updated: 2020/10/17 20:48:14 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,7 @@ void				Form::execute(Bureaucrat const &executor) const
 std::ostream		&operator<<(std::ostream &stream, const Form &form)
 {
 	stream << "Form name   : " << form.getName() << ";\n";
+	stream << "Form target : " << form.getTarget() << ";\n";
 	stream << "Sign grade  : " << form.getSGrade() << ";\n";
 	stream << "Exec grade  : " << form.getEGrade() << ";\n";
 	stream << "Form signed : " << (form.isItSigned() == true ? GREENIFY("yes") : REDIFY("no")) << ";";
