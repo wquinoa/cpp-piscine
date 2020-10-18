@@ -6,7 +6,7 @@
 /*   By: wquinoa <wquinoa@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/18 03:46:22 by wquinoa           #+#    #+#             */
-/*   Updated: 2020/10/18 04:11:11 by wquinoa          ###   ########.fr       */
+/*   Updated: 2020/10/18 12:47:07 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,12 @@ void	*serialize(void)
 	std::cout << "n  : " << data->n << std::endl;
 	std::cout << "s2 : " << data->s2 << std::endl;
 
-	return (static_cast<void *>(data));
+	return (reinterpret_cast<void *>(data));
 }
 
 Data	*deserialize(void *void_data)
 {
-	return (static_cast<Data *>(void_data));
+	return (reinterpret_cast<Data *>(void_data));
 }
 
 int	main(void)

@@ -16,10 +16,12 @@ $(NAME): $(OBJ)
 	$(CC) $(CF) -c $<
 
 clean:
-	@rm $(OBJ)
+	clear
+	@rm -rf $(OBJ)
 
 fclean: clean
-	@rm $(NAME)
+	clear
+	@rm -rf $(NAME)
 
 test: $(NAME)
 	./$(NAME)
