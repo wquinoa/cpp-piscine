@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Array.hpp                                          :+:      :+:    :+:   */
+/*   Array.tpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wquinoa <wquinoa@student.42.fr>            +#+  +:+       +#+        */
+/*   By: wquinoa <wquinoa@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/18 16:23:23 by wquinoa           #+#    #+#             */
-/*   Updated: 2020/10/18 20:44:40 by wquinoa          ###   ########.fr       */
+/*   Updated: 2020/10/19 00:06:32 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ public:
     Array<T>(Array const &copy);
 
     Array<T>	&operator=(Array<T> const &copy);
-	T			&operator[](unsigned int);
+	T			&operator[](unsigned int) const;
     ~Array<T>();
 
 	unsigned	size() const;
@@ -58,11 +58,5 @@ private:
 	T			*tab;
 	unsigned	_size;
 };
-
-//template <class T>
-//std::ostream		&operator<<(std::ostream &, Array<T> const &);
-
-template <class T>
-std::ostream		&operator<<(std::ostream &, Array<T> const *);
 
 #endif

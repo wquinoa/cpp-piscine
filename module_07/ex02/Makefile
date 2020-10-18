@@ -1,5 +1,5 @@
 
-NAME = ex02 
+NAME = Array 
 SRC = $(addsuffix .cpp, $(NAME)) main.cpp
 OBJ = $(SRC:cpp=o)
 CC = clang++
