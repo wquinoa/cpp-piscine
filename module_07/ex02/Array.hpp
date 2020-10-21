@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Array.tpp                                          :+:      :+:    :+:   */
+/*   Array.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wquinoa <wquinoa@student.21-school.ru>     +#+  +:+       +#+        */
+/*   By: wquinoa <wquinoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/18 16:23:23 by wquinoa           #+#    #+#             */
-/*   Updated: 2020/10/19 00:06:32 by wquinoa          ###   ########.fr       */
+/*   Updated: 2020/10/21 10:51:17 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,21 +37,62 @@
 template <class T>
 class Array
 {
-public:
-	Array<T>();
-	Array<T>(unsigned int);
-    Array<T>(Array const &copy);
-
-    Array<T>	&operator=(Array<T> const &copy);
-	T			&operator[](unsigned int) const;
-    ~Array<T>();
-
-	unsigned	size() const;
-
+public:	
 	class OutOfRangeException : public std::exception 
 	{
 	public:
-		const char *what() const throw();
+		const char *what() const throw() {
+			return ("Array: index out of range");
+		}
+	};
+
+	Array<T>() {
+		_size = 0;
+		tab = NULL;
+	};
+
+	Array<T>(unsigned int _size_) {
+		_size = _size_;
+		tab = new T[_size];
+		for (unsigned i = 0; i < _size; i++)
+			tab[i] = T();
+	};
+
+    Array<T>(Array const &copy) {
+		_size = copy._size;
+		for (unsigned i = 0; i < _size; i++)
+		{
+			std::cout << "here" << std::endl;
+
+			std::cout << copy.tab[i] << std::endl;
+			this->tab[i] = copy.tab[i];
+		}
+	};
+
+    Array<T>	&operator=(Array<T> const &copy) {
+		if (this != &copy)
+		{
+			_size = copy._size;
+			tab = new T[_size];
+			for (unsigned i = 0; i < _size; i++)
+				tab[i] = copy[i];
+		}
+		return (*this);
+	};
+
+	T			&operator[](unsigned int pos) const {
+		if (pos >= _size)
+			throw OutOfRangeException();
+		return (tab[pos]);
+	};
+
+    ~Array<T>() {
+		if (tab)
+			delete[] tab;
+	};
+
+	unsigned	size() const {
+		return (_size);
 	};
 
 private:

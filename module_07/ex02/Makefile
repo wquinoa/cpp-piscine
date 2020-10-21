@@ -1,6 +1,6 @@
 
 NAME = Array 
-SRC = $(addsuffix .cpp, $(NAME)) main.cpp
+SRC = main.cpp
 OBJ = $(SRC:cpp=o)
 CC = clang++
 CF = -Wall -Werror -Wextra
