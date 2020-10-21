@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wquinoa <wquinoa@student.21-school.ru>     +#+  +:+       +#+        */
+/*   By: wquinoa <wquinoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/19 21:14:38 by wquinoa           #+#    #+#             */
-/*   Updated: 2020/10/14 23:43:10 by wquinoa          ###   ########.fr       */
+/*   Updated: 2020/10/21 11:49:02 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,6 @@
 #include "MateriaSource.hpp"
 #include "IMateriaSource.hpp"
 #include "ICharacter.hpp"
-
-//void	print_materia()
-//{
-
-//}
 
 void	materia_test()
 {
@@ -94,7 +89,6 @@ int		main(void)
 	delete src;
 
 	std::cout << "\nPress any key to run my tests" << std::endl;
-	//std::getchar();
 	materia_test();
 
 	std::cout << "Press any key after running leak checks" << std::endl;

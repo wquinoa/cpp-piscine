@@ -6,7 +6,7 @@
 /*   By: wquinoa <wquinoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/10 08:21:36 by wquinoa           #+#    #+#             */
-/*   Updated: 2020/10/11 16:38:02 by wquinoa          ###   ########.fr       */
+/*   Updated: 2020/10/21 11:50:27 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ Squad::Squad()
     count = 0;
 }
 
-Squad::Squad(int n) //should be protected
+Squad::Squad(int n)
 {
 	platoon = new ISpaceMarine*[n];
 	count = n;

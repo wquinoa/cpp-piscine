@@ -6,17 +6,11 @@
 /*   By: wquinoa <wquinoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/02 03:58:15 by wquinoa           #+#    #+#             */
-/*   Updated: 2020/10/11 11:56:33 by wquinoa          ###   ########.fr       */
+/*   Updated: 2020/10/21 11:50:15 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AssaultTerminator.hpp"
-
-// • Birth: "* teleports from space *"
-// • battleCry() : "This code is unclean. PURIFY IT!"
-// • rangedAttack : "* does nothing *"
-// • meleeAttack : "* attacks with chainfists *"
-// • Death: "I’ll be back..."
 
 AssaultTerminator::AssaultTerminator()
 {
