@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   iter.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wquinoa <wquinoa@student.21-school.ru>     +#+  +:+       +#+        */
+/*   By: wquinoa <wquinoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/18 14:13:15 by wquinoa           #+#    #+#             */
-/*   Updated: 2020/10/18 14:47:03 by wquinoa          ###   ########.fr       */
+/*   Updated: 2020/10/21 09:24:01 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int main(void)
     int     goodbye[] = {1, 2, 3, 4, 5};
     float   hey[] = {1.2, 2.3, 3.4, 4.5, 5.6};
 
-    iter(hello, 5, &function);
+    iter(hello, 5, function);
     iter(goodbye, 5, function);
     iter(hey, 5, function);
 }

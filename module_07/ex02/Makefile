@@ -10,7 +10,7 @@ CF = -Wall -Werror -Wextra
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) $(CF) -I. $^ -o $(NAME)
+	$(CC) $(CF) -I. $^ -o $(NAME) 
 
 %.o: %.cpp
 	$(CC) $(CF) -c $<

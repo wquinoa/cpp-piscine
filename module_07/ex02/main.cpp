@@ -6,19 +6,20 @@
 /*   By: wquinoa <wquinoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/18 19:09:01 by wquinoa           #+#    #+#             */
-/*   Updated: 2020/10/21 10:42:59 by wquinoa          ###   ########.fr       */
+/*   Updated: 2020/10/21 11:27:11 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Array.hpp"
 # define GREENIFY(x) ("\033[32;2m" + x + "\033[0;m")
-# define ASIZE 7
+# define REDIFY(x) ("\033[31;2m" + (std::string)x + "\033[0;m")
+# define ASIZE 256
 
 const char		alphanum[] =
                 "0123456789"
                 "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
                 "abcdefghijklmnopqrstuvwxyz";
-static double randomValues[ASIZE];
+static double   randomValues[ASIZE];
 
 
 template <class T>
@@ -32,7 +33,7 @@ void    printer(Array<T> &tab, std::string name)
         std::cout << "\033[32;2m" << tab[tab.size() - 1] << "\033[0;m }" << std::endl;
     }
     else
-        std::cout << "{ NULL }" << std::endl;
+        std::cout << REDIFY("{ NULL }") << std::endl;
 }
 
 template <class T>
@@ -42,7 +43,7 @@ void    fill_tab(Array<T> &tab)
         tab[i] = randomValues[i];
 }
 
-int main()
+int     main()
 {   
     srand(time(0));
     for (int i = 0; i < ASIZE; i++)
@@ -64,6 +65,10 @@ int main()
     fill_tab(d);
     printer(d, "\ndouble\nd");
 
+    Array<short> f(ASIZE);
+    fill_tab(f);
+    printer(f, "\nshort\nf");
+
     Array<std::string> e(ASIZE);
     for (unsigned i = 0; i < e.size(); i++)
     {
@@ -77,7 +82,7 @@ int main()
     }
     catch (std::exception &e)
     {
-        std::cout << "e[-1]" << std::endl;
+        std::cout << "\ne[-1]" << std::endl;
         std::cout << "exception: " << e.what() << std::endl;
     }
     try
@@ -86,7 +91,7 @@ int main()
     }
     catch (std::exception &e)
     {
-        std::cout << "e[size + 1]" << std::endl;
+        std::cout << "\ne[" << ASIZE << " + 1]" << std::endl;
         std::cout << "exception: " << e.what() << std::endl;
     }
     return (0);
