@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Peon.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wquinoa <wquinoa@student.21-school.ru>     +#+  +:+       +#+        */
+/*   By: wquinoa <wquinoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/14 22:21:36 by wquinoa           #+#    #+#             */
-/*   Updated: 2020/09/15 03:00:27 by wquinoa          ###   ########.fr       */
+/*   Updated: 2020/10/22 12:33:42 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 class Peon : public Victim
 {
 public:
-	Peon();
 	Peon(std::string name);
 	Peon(const Peon &p);
 	~Peon();

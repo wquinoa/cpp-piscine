@@ -6,7 +6,7 @@
 /*   By: wquinoa <wquinoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/19 21:14:38 by wquinoa           #+#    #+#             */
-/*   Updated: 2020/10/21 11:49:02 by wquinoa          ###   ########.fr       */
+/*   Updated: 2020/10/22 13:00:31 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@
 
 void	materia_test()
 {
-	IMateriaSource *source = new MateriaSource();
-	ICharacter*	zaz = new Character("zaz");
+	MateriaSource *source = new MateriaSource;
+	Character*	zaz = new Character("zaz");
 	ICharacter*	bob = new Character("bob");
 	AMateria	*materia, *tmp;
 
@@ -45,11 +45,6 @@ void	materia_test()
 		zaz->equip(materia);
 		if (i < 0 || i > 3)
 			delete materia;
-		if (i == 3)
-		{
-			tmp = materia;
-			std::cout << materia << std::endl;
-		}
 	}
 	for (int i = -1; i < 5; i++)
 	{
@@ -57,9 +52,10 @@ void	materia_test()
 		zaz->use(i, *bob);
 	}
 	zaz->use(3, *bob);
+	tmp = zaz->returnMateria(3); // need it to prevent leaks
 	zaz->unequip(3);
 	zaz->unequip(3);
-	delete materia;
+	delete tmp;
 	delete bob;
 	delete zaz;
 	delete source;
@@ -88,7 +84,8 @@ int		main(void)
 	delete zaz;
 	delete src;
 
-	std::cout << "\nPress any key to run my tests" << std::endl;
+	std::cout << "\nPress enter to run my tests" << std::endl;
+	std::getchar();
 	materia_test();
 
 	std::cout << "Press any key after running leak checks" << std::endl;

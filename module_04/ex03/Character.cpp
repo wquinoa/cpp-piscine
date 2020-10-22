@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Character.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wquinoa <wquinoa@student.21-school.ru>     +#+  +:+       +#+        */
+/*   By: wquinoa <wquinoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/19 21:14:38 by wquinoa           #+#    #+#             */
-/*   Updated: 2020/10/14 23:52:43 by wquinoa          ###   ########.fr       */
+/*   Updated: 2020/10/22 12:58:36 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,4 +74,11 @@ void				Character::use(int i, ICharacter &someguy)
 		inventory[i]->use(someguy);
 	else
 		std::cout << "This is an empty slot" << std::endl;
+}
+
+AMateria			*Character::returnMateria(unsigned i) const
+{
+	if (i < 4)
+		return (inventory[i]);
+	return (NULL);
 }

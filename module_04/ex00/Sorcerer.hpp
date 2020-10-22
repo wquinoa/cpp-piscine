@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Sorcerer.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wquinoa <wquinoa@student.21-school.ru>     +#+  +:+       +#+        */
+/*   By: wquinoa <wquinoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/14 21:08:13 by wquinoa           #+#    #+#             */
-/*   Updated: 2020/09/14 22:57:17 by wquinoa          ###   ########.fr       */
+/*   Updated: 2020/10/22 12:08:50 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 class Sorcerer{
 public:
 	Sorcerer(std::string newName, std::string newTitle);
+	Sorcerer(Sorcerer const &);
 	~Sorcerer();
 	std::string		getName() const;
 	std::string		getTitle() const;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   MateriaSource.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wquinoa <wquinoa@student.21-school.ru>     +#+  +:+       +#+        */
+/*   By: wquinoa <wquinoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/19 21:14:38 by wquinoa           #+#    #+#             */
-/*   Updated: 2020/10/14 20:03:26 by wquinoa          ###   ########.fr       */
+/*   Updated: 2020/10/22 12:54:50 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,14 @@ class MateriaSource : public IMateriaSource
 public:
 	MateriaSource();
 	MateriaSource(const MateriaSource &copy);
-	virtual ~MateriaSource();
+	~MateriaSource();
 	MateriaSource	&operator=(const MateriaSource &copy);
 	void			learnMateria(AMateria *);
 	AMateria		*createMateria(std::string const &type);
+	AMateria		*returnMateria(unsigned) const ;
 
 private:
 	AMateria	*collection_[5];
-	short		coll_size;
 };
 
 #endif
