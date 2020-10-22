@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wquinoa <wquinoa@student.21-school.ru>     +#+  +:+       +#+        */
+/*   By: wquinoa <wquinoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/18 13:27:32 by wquinoa           #+#    #+#             */
-/*   Updated: 2020/10/18 13:27:46 by wquinoa          ###   ########.fr       */
+/*   Updated: 2020/10/22 14:23:29 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ Base	*generate(void)
 		ptr = new B;
 	else
 		ptr = new C;
-
 	return (ptr);
 }
 
@@ -80,7 +79,7 @@ int     main()
 
 	srand(time(0));
 
-    for (int i = 0; i < 3; i++)
+    for (int i = 0; i < 6; i++)
     {
         base = dynamic_cast<Base *>(generate());
         identify_from_pointer(base);

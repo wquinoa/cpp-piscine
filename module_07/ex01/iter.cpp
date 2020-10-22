@@ -6,7 +6,7 @@
 /*   By: wquinoa <wquinoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/18 14:13:15 by wquinoa           #+#    #+#             */
-/*   Updated: 2020/10/21 09:24:01 by wquinoa          ###   ########.fr       */
+/*   Updated: 2020/10/22 14:31:11 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,13 @@ T       function(T item)
 }
 
 template <class T>
+T       arrays(T item)
+{
+    std::cout << item << " ";
+    return (item);
+}
+
+template <class T>
 void    iter(T *tab, int len, T f(T))
 {
     for (int i = 0; i < len; i++)
@@ -30,11 +37,13 @@ void    iter(T *tab, int len, T f(T))
 
 int main(void)
 {
-    char    hello[] = "ifmmp";
-    int     goodbye[] = {1, 2, 3, 4, 5};
-    float   hey[] = {1.2, 2.3, 3.4, 4.5, 5.6};
+    char            hello[] = "ifmmp";
+    int             goodbye[] = {1, 2, 3, 4, 5};
+    float           hey[] = {1.2, 2.3, 3.4, 4.5, 5.6};
+    std::string     please[] = { "Give", "me a", "100" };
 
     iter(hello, 5, function);
     iter(goodbye, 5, function);
     iter(hey, 5, function);
+    iter(please, 3, arrays);
 }

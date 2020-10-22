@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   easyfind.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wquinoa <wquinoa@student.21-school.ru>     +#+  +:+       +#+        */
+/*   By: wquinoa <wquinoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/19 01:52:49 by wquinoa           #+#    #+#             */
-/*   Updated: 2020/10/19 02:49:10 by wquinoa          ###   ########.fr       */
+/*   Updated: 2020/10/22 14:36:55 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,22 @@
 # include <vector>
 # include <array>
 
-template<class T>
-unsigned   easyfind(T, int);
-
 class ElementNotFoundException : public std::exception
 {
 public:
-    const char *what() const throw();
+    const char *what() const throw() {
+        return ("easyfind: element not found");
+    };
 };
+
+template<class T>
+int   easyfind(T cont, int to_find) {
+    typename T::iterator iter;
+
+    iter = std::find(cont.begin(), cont.end(), to_find);
+    if (iter == cont.end())
+        throw ElementNotFoundException();
+    return (*iter);
+};;
 
 #endif

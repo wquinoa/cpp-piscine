@@ -6,14 +6,14 @@
 /*   By: wquinoa <wquinoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/18 19:09:01 by wquinoa           #+#    #+#             */
-/*   Updated: 2020/10/21 11:27:11 by wquinoa          ###   ########.fr       */
+/*   Updated: 2020/10/22 14:32:52 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Array.hpp"
 # define GREENIFY(x) ("\033[32;2m" + x + "\033[0;m")
 # define REDIFY(x) ("\033[31;2m" + (std::string)x + "\033[0;m")
-# define ASIZE 256
+# define ASIZE 42
 
 const char		alphanum[] =
                 "0123456789"

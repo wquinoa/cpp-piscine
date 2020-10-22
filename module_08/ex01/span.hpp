@@ -1,30 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
+/*   span.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wquinoa <wquinoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/15 19:22:42 by user              #+#    #+#             */
-/*   Updated: 2020/10/22 14:20:27 by wquinoa          ###   ########.fr       */
+/*   Created: 2020/10/21 12:30:22 by wquinoa           #+#    #+#             */
+/*   Updated: 2020/10/21 12:55:53 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRESIDENTIALPARDONFORM_HPP
-# define PRESIDENTIALPARDONFORM_HPP
+#ifndef SPAN_HPP
+# define SPAN_HPP
 # include <iostream>
-# include <ctime>
-# include "Form.hpp"
 
-class PresidentialPardonForm : public Form
+class Span
 {
 public:
-	PresidentialPardonForm(std::string);
-	PresidentialPardonForm(const PresidentialPardonForm &copy);
-	~PresidentialPardonForm();
-	PresidentialPardonForm &operator=(const PresidentialPardonForm &copy);
+	Span(const Span &);
+	Span(unsigned);
+	~Span();
+	Span		&operator=(const Span &);
 
-	void		action() const;
+	void		addNumber(int);
+	unsigned	shorestSpan() const;
+	unsigned	longestSpan() const;
+
+private:
+	Span();
+	int			*tab;
+	unsigned	fill;
+	unsigned	size;
 };
 
 #endif
