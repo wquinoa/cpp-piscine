@@ -6,7 +6,7 @@
 /*   By: wquinoa <wquinoa@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/17 20:28:58 by wquinoa           #+#    #+#             */
-/*   Updated: 2020/10/17 21:10:41 by wquinoa          ###   ########.fr       */
+/*   Updated: 2020/10/27 01:24:02 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,9 @@
 
 void    oscars_office(Form *form)
 {
-    Bureaucrat              accountant(BOLDIFY("Oscar"), 30);
+    Bureaucrat              accountan(BOLDIFY("Oscar"), 30);
+    Bureaucrat              Oscar(accountan);
+    Bureaucrat              accountant = Oscar;
 
     try
     {
@@ -44,7 +46,6 @@ int     main(void)
     Intern      joe("Joe");
     Form        *document;
     std::string	options[4] = { "robotomy reqest", "presidential pardon", "shrubbery creation", "bshd-4" };
-
 
     for (int i = 0; i < 4; i++)
     {

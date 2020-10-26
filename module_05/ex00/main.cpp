@@ -6,7 +6,7 @@
 /*   By: wquinoa <wquinoa@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 00:42:28 by wquinoa           #+#    #+#             */
-/*   Updated: 2020/10/15 17:29:38 by wquinoa          ###   ########.fr       */
+/*   Updated: 2020/10/27 01:08:04 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,15 @@ void    high_grade()
     }
     catch(std::exception &e)
     {
-        std::cout << e.what() << std::endl;
+        std::cout << "exception: " << e.what() << std::endl;
     }
 }
 
 int     main(void)
 {
-    Bureaucrat A("Oscar");
+    Bureaucrat test1("Oscar");
+    Bureaucrat test2(test1);
+    Bureaucrat A = test1;
 
     A.incrementGrade();
     try
@@ -44,7 +46,7 @@ int     main(void)
     }
     catch (std::exception &e)
     {
-        std::cout << e.what() << std::endl;
+        std::cout << "exception: " << e.what() << std::endl;
     }
     high_grade();
 }

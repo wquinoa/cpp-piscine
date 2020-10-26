@@ -6,7 +6,7 @@
 /*   By: wquinoa <wquinoa@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 00:02:27 by wquinoa           #+#    #+#             */
-/*   Updated: 2020/10/15 16:54:51 by wquinoa          ###   ########.fr       */
+/*   Updated: 2020/10/27 01:02:52 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,12 @@
 
 class Bureaucrat
 {
-protected:
-	Bureaucrat();
 public:
 	Bureaucrat(const Bureaucrat &copy);
 	Bureaucrat(std::string const &name);
 	Bureaucrat(std::string const &name, int grade);
-	~Bureaucrat();
 	Bureaucrat &operator=(const Bureaucrat &copy);
+	~Bureaucrat();
 
 	class GradeTooLowException : public std::exception 
 	{
@@ -45,8 +43,8 @@ public:
 	void						incrementGrade();
 	void						decrementGrade();
 
-
 private:
+	Bureaucrat();
 	std::string const			&_name;
 	unsigned int				_grade;
 };
