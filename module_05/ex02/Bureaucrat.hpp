@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wquinoa <wquinoa@student.42.fr>            +#+  +:+       +#+        */
+/*   By: wquinoa <wquinoa@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 00:02:27 by wquinoa           #+#    #+#             */
-/*   Updated: 2020/10/16 07:47:54 by wquinoa          ###   ########.fr       */
+/*   Updated: 2020/10/27 01:02:04 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@ class Form;
 
 class Bureaucrat
 {
-protected:
-	Bureaucrat();
 public:
 	Bureaucrat(const Bureaucrat &copy);
 	Bureaucrat(std::string const &name);
@@ -51,6 +49,7 @@ public:
 	void						executeForm(Form const &) const;
 
 private:
+	Bureaucrat();
 	std::string const			&_name;
 	unsigned int				_grade;
 };

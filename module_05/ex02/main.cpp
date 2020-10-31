@@ -6,7 +6,7 @@
 /*   By: wquinoa <wquinoa@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/17 20:58:25 by wquinoa           #+#    #+#             */
-/*   Updated: 2020/10/17 21:11:56 by wquinoa          ###   ########.fr       */
+/*   Updated: 2020/10/27 01:21:39 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int     main(void)
     PresidentialPardonForm  form3("mr. Brown");
     Form                    *folder[3] = {&form1, &form2, &form3};
 
-    std::cout << accountant << std::endl << std:: endl;
+    std::cout << std::endl << accountant << std::endl << std:: endl;
     for (int i = 0; i < 3; i++)
     {
         try

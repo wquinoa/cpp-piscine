@@ -6,7 +6,7 @@
 /*   By: wquinoa <wquinoa@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 00:02:27 by wquinoa           #+#    #+#             */
-/*   Updated: 2020/10/17 21:57:02 by wquinoa          ###   ########.fr       */
+/*   Updated: 2020/10/27 01:07:19 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 const char *Bureaucrat::GradeTooLowException::what() const throw()
 {
-	return ("Grade too low");
+	return ("Bureaucrat: Grade too low");
 }
 
 const char *Bureaucrat::GradeTooHighException::what() const throw()
 {
-	return ("Grade too high");
+	return ("Bureaucrat: Grade too high");
 }
 
 Bureaucrat::~Bureaucrat()

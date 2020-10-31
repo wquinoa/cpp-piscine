@@ -6,7 +6,7 @@
 /*   By: wquinoa <wquinoa@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 00:42:28 by wquinoa           #+#    #+#             */
-/*   Updated: 2020/10/15 19:18:10 by wquinoa          ###   ########.fr       */
+/*   Updated: 2020/10/27 01:13:15 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int     main(void)
     Form        taxes(UNDERLINE("Tax report"), 75);
     Form        revenue(UNDERLINE("Revenue report"), 10);
 
-    std::cout << accountant << std::endl << std::endl;
+    std::cout << std::endl << accountant << std::endl << std::endl;
     std::cout << taxes << std::endl;
     accountant.signForm(taxes);
     std::cout << std::endl << taxes << std::endl;
@@ -29,4 +29,12 @@ int     main(void)
     std::cout << std::endl << revenue << std::endl;
     accountant.signForm(revenue);
     std::cout << std::endl;
+    for (int i = 0; i < 25; i++)
+    {
+        try { accountant.incrementGrade(); }
+        catch (std::exception &e) { std::cout << e.what() << std::endl; }
+    }
+    accountant.signForm(revenue);
+    std::cout << std::endl;
+    std::cout << std::endl << revenue << std::endl;
 }
