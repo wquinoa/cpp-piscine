@@ -6,7 +6,7 @@
 /*   By: wquinoa <wquinoa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/18 14:13:15 by wquinoa           #+#    #+#             */
-/*   Updated: 2020/11/02 20:56:58 by wquinoa          ###   ########.fr       */
+/*   Updated: 2020/11/02 21:00:42 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,11 +55,12 @@ void    iter(T *tab, int len, void f(T const &))
 int main(void)
 {
     char            hello[] = "ifmmp";
-    int             goodbye[] = {1, 2, 3, 4, 5};
-    float           hey[] = {1.2, 2.3, 3.4, 4.5, 5.6};
+    int             goodbye[] = { 1, 2, 3, 4, 5 };
+    float           hey[] = { 1.2, 2.3, 3.4, 4.5, 5.6 };
     std::string     please[] = { "Give", "me a", "100", "right", "now" };
-    int tab[] = { 0, 1, 2, 3, 4 }; // <--- I never understood why you can't write int[] tab. Wouldn't that make more sense?
-    Awesome tab2[5];
+
+    int             tab[] = { 0, 1, 2, 3, 4 }; // <--- I never understood why you can't write int[] tab. Wouldn't that make more sense?
+    Awesome         tab2[5];
 
     iter( tab, 5, print );
     iter( tab2, 5, print );
