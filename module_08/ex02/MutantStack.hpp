@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   MutantStack.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wquinoa <wquinoa@student.42.fr>            +#+  +:+       +#+        */
+/*   By: wquinoa <wquinoa@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/09 16:37:08 by wquinoa           #+#    #+#             */
-/*   Updated: 2020/11/09 20:07:14 by wquinoa          ###   ########.fr       */
+/*   Updated: 2020/11/14 16:12:08 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,11 @@ public:
 	
 	MutantStack<T>() : std::stack<T>() {};
 	MutantStack<T>(const MutantStack &copy) : std::stack<T>(copy) {};
-	MutantStack<T> &operator=(const MutantStack<T> &copy) {};
+	MutantStack<T> &operator=(const MutantStack<T> &copy) {
+		if (this != &copy)
+			this->c = copy.c;
+		return (*this);
+	};
 	virtual	~MutantStack<T>() {};
 
 	class iterator : public std::iterator<std::input_iterator_tag, T>

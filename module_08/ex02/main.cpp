@@ -3,15 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wquinoa <wquinoa@student.42.fr>            +#+  +:+       +#+        */
+/*   By: wquinoa <wquinoa@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/09 16:37:08 by wquinoa           #+#    #+#             */
-/*   Updated: 2020/11/09 20:06:12 by wquinoa          ###   ########.fr       */
+/*   Updated: 2020/11/14 16:24:11 by wquinoa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MutantStack.hpp"
 #include <list>
+# define GREENIFY(x) ("\033[32;2m" + (std::string)x + "\033[0m")
+# define GREEN(x) ("\033[32m" + (std::string)x + "\033[0;2m")
 
 void	test_list()
 {	
@@ -26,12 +28,14 @@ void	test_list()
 	mstack.push_front(0);
 	mstack.push_front(898);
 	mstack.push_front(123131);
-	std::cout << "top: " << *mstack.begin() << std::endl;
-	std::cout << "size: " << mstack.size() << std::endl;
+	std::cout << GREEN("list test for comparison") << std::endl;
+	std::cout << "top         : " << *mstack.begin() << std::endl;
+	std::cout << "size: " << mstack.size() << std::endl << std::endl;
 	std::list<int>::iterator it = mstack.begin();
 	std::list<int>::iterator ite = mstack.end();
 	++it;
 	--it;
+	std::cout << GREENIFY("normal iterator") << std::endl;
 	while (it != ite)
 	{
 		std::cout << "|" << *it << "| ";
@@ -40,10 +44,10 @@ void	test_list()
 	std::cout << std::endl << std::endl;
 	std::list<int>::reverse_iterator rit = mstack.rbegin();
 	std::list<int>::reverse_iterator rite = mstack.rend();
-	int i = -1;
+	std::cout << GREENIFY("reverse iterator") << std::endl;
 	while (rit != rite)
 	{
-		std::cout << ":" << *rit << ": ";
+		std::cout << "|" << *rit << ": ";
 		++rit;
 	}
 	std::cout << std::endl;
@@ -62,15 +66,22 @@ int		main(void)
 	mstack.push(0);
 	mstack.push(898);
 	mstack.push(123131);
-	std::cout << "top     : " << mstack.top() << std::endl;
+	std::cout << GREEN("MutantStack test") << std::endl;
+	std::cout << "top         : " << mstack.top() << std::endl;
+
 	MutantStack<int> coppppy(mstack);
-	std::cout << "copy top: " << coppppy.top() << std::endl;
-	std::cout << "size: " << mstack.size() << std::endl;
+	std::cout << "copy top    : " << coppppy.top() << std::endl;
+
+	MutantStack<int> assigned = mstack;
+	std::cout << "assigned top: " << assigned.top() << std::endl;
+
+	std::cout << "size: " << mstack.size() << std::endl << std::endl;
 
 	MutantStack<int>::iterator it = mstack.begin();
 	MutantStack<int>::iterator ite = mstack.end();
 	++it;
 	--it;
+	std::cout << GREENIFY("normal iterator") << std::endl;
 	while (it != ite)
 	{
 		std::cout << "|" << *it << "| ";
@@ -80,14 +91,13 @@ int		main(void)
 	std::cout << std::endl << std::endl;
 	MutantStack<int>::reverse_iterator rit = mstack.rbegin();
 	MutantStack<int>::reverse_iterator rite = mstack.rend();
-	int i = -1;
+	std::cout << GREENIFY("reverse iterator") << std::endl;
 	while (rit != rite)
 	{
-		std::cout << ":" << *rit << ": ";
+		std::cout << "|" << *rit << "| ";
 		++rit;
 	}
-	std::cout << std::endl;
-	std::stack<int> s(mstack);	
+	std::cout << std::endl << std::endl;
 
 	test_list();
 	return 0;
